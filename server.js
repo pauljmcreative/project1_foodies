@@ -17,41 +17,6 @@ app.use(function(req, res, next) {
 });
 
 
-// const userProfile = [
-// {
-//   user: 'k-nuggets',
-//   password: 'abc123',
-//   foodPref: ['italian', 'mexican']
-// },
-// {
-//   user: 'poutine4ever',
-//   password: 'toronto1',
-//   foodPref: ['mexican', 'french']
-// },
-// {
-//   user: 'markymark',
-//   password: 'gatorsrule1',
-//   foodPref: ['american', 'mexican']
-// }
-// ];
-
-
-// const userComments = [
-// {
-//   user: 'Kenny B nuggets',
-//   message: 'I lie awake at night assured these two will cure cancer based on their development skills.'
-// },
-// {
-//   user: 'Brock Poutine',
-//   message: 'I love poutine and I love these guys.  Their work is poutine.'
-// },
-// {
-//   user: 'Mark Floridageorgialine',
-//   message: 'Broooooooooooooooooooo!  I love sandwiches.'
-// },
-// ];
-
-
 
 // serve static files in public
 app.use(express.static(__dirname + '/public'));
@@ -69,6 +34,26 @@ app.get('/api/users', (req, res) => {
     if(err) throw err;
     res.json(allUsers);
   });
+});
+
+
+app.post('/api/users', (req, res) => {
+  console.log(req.body);
+  db.User.create(req.body, (err, newUser) => {
+    if(err) throw err;
+    console.log(newUser)
+    res.json(newUser);
+  });
+});
+
+
+app.put('/api/users/:id', (req, res) => {
+  console.log('Received: ' + req.body)
+    const userId = req.params.id;
+    const userData = req.body;
+    db.User.findOneAndUpdate(userId, userData, {new: true}, (err, updateUser) => {
+      res.json(updatedUser);
+    });
 });
 
 
