@@ -7,15 +7,18 @@ const db = require('./models');
 let userProfile = [
 {
   user: 'k-nuggets',
-  password: 'abc123'
+  password: 'abc123',
+  foodPref: ['italian', 'mexican']
 },
 {
   user: 'poutine4ever',
-  password: 'toronto1'
+  password: 'toronto1',
+  foodPref: ['mexican', 'french']
 },
 {
   user: 'markymark',
-  password: 'gatorsrule1'
+  password: 'gatorsrule1',
+  foodPref: ['american', 'mexican']
 }
 ];
 

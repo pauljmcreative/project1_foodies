@@ -16,6 +16,27 @@ app.use(function(req, res, next) {
 });
 
 
+let userProfile = [
+{
+  user: 'k-nuggets',
+  password: 'abc123',
+  foodPref: ['italian', 'mexican']
+},
+{
+  user: 'poutine4ever',
+  password: 'toronto1',
+  foodPref: ['mexican', 'french']
+},
+{
+  user: 'markymark',
+  password: 'gatorsrule1',
+  foodPref: ['american', 'mexican']
+}
+];
+
+
+
+
 
 // serve static files in public
 app.use(express.static(__dirname + '/public'));
@@ -25,6 +46,16 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+
+
+app.get('/api/users', (req, res) => {
+  console.log('get-users info works!');
+    // if(err) throw err;
+    // console.log(userProfile);
+    res.json(userProfile);
+});
+
 
 
 
