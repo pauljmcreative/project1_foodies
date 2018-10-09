@@ -2,9 +2,48 @@ body {
   background-color: #3a3a3a;
   color: #f2f2f2;
   margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f2f2;
 }
 
 h1 {
   font-size: 40px;
   color: #6FB7FF;
 }
+
+li {
+  list-style-type: none;
+  color: white;
+}
+
+a {
+  color: #3a3a3a;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0 20px;
+}
+
+.nav-buttons {
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+
+
+
+
