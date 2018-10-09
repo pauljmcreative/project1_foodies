@@ -65,6 +65,16 @@ app.get('/api/comments', (req, res) => {
 });
 
 
+app.post('/api/comments', (req, res) => {
+  console.log(req.body);
+  db.Comment.create(req.body, (err, newComment) => {
+    if(err) throw err;
+    console.log(newComment)
+    res.json(newComment);
+  });
+});
+
+
 
 
 

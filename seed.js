@@ -27,15 +27,15 @@ const userProfile = [
 
 const userComments = [
 {
-  user: 'Kenny B nuggets',
+  name: 'Kenny B nuggets',
   message: 'I lie awake at night assured these two will cure cancer based on their development skills.'
 },
 {
-  user: 'Brock Poutine',
+  name: 'Brock Poutine',
   message: 'I love poutine and I love these guys.  Their work is poutine.'
 },
 {
-  user: 'Mark Floridageorgialine',
+  name: 'Mark Floridageorgialine',
   message: 'Broooooooooooooooooooo!  I love sandwiches.'
 },
 ];
