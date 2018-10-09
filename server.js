@@ -51,9 +51,18 @@ app.put('/api/users/:id', (req, res) => {
   console.log('Received: ' + req.body)
     const userId = req.params.id;
     const userData = req.body;
-    db.User.findOneAndUpdate(userId, userData, {new: true}, (err, updateUser) => {
+    db.User.findByIdAndUpdate(userId, userData, {new: true}, (err, updateUser) => {
       res.json(updatedUser);
     });
+});
+
+
+app.delete('/api/users/:id', (req, res) => {
+  const userId = req.params.id;
+  db.User.findByIdAndDelete(userId, (err, deletedUser) => {
+    if(err) throw err;
+    res.json(deletedUser);
+  });
 });
 
 
@@ -74,7 +83,12 @@ app.post('/api/comments', (req, res) => {
   });
 });
 
-
+app.put('/api/comments/:id', (req, res) => {
+  db.Comment.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedComment) => {
+    if (err) throw err;
+    res.json(updatedComment);
+  });
+});
 
 
 
