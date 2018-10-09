@@ -43,6 +43,12 @@ a {
 
 }
 
+#pics {
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
 
 
 
