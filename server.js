@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const db = require('./models');
 
 //BODY PARSER
 const bodyParser = require('body-parser');
@@ -16,25 +17,39 @@ app.use(function(req, res, next) {
 });
 
 
-let userProfile = [
-{
-  user: 'k-nuggets',
-  password: 'abc123',
-  foodPref: ['italian', 'mexican']
-},
-{
-  user: 'poutine4ever',
-  password: 'toronto1',
-  foodPref: ['mexican', 'french']
-},
-{
-  user: 'markymark',
-  password: 'gatorsrule1',
-  foodPref: ['american', 'mexican']
-}
-];
+// const userProfile = [
+// {
+//   user: 'k-nuggets',
+//   password: 'abc123',
+//   foodPref: ['italian', 'mexican']
+// },
+// {
+//   user: 'poutine4ever',
+//   password: 'toronto1',
+//   foodPref: ['mexican', 'french']
+// },
+// {
+//   user: 'markymark',
+//   password: 'gatorsrule1',
+//   foodPref: ['american', 'mexican']
+// }
+// ];
 
 
+// const userComments = [
+// {
+//   user: 'Kenny B nuggets',
+//   message: 'I lie awake at night assured these two will cure cancer based on their development skills.'
+// },
+// {
+//   user: 'Brock Poutine',
+//   message: 'I love poutine and I love these guys.  Their work is poutine.'
+// },
+// {
+//   user: 'Mark Floridageorgialine',
+//   message: 'Broooooooooooooooooooo!  I love sandwiches.'
+// },
+// ];
 
 
 
@@ -48,15 +63,21 @@ app.get('/', function homepage(req, res) {
 });
 
 
-
+//Create routes
 app.get('/api/users', (req, res) => {
-  console.log('get-users info works!');
-    // if(err) throw err;
-    // console.log(userProfile);
-    res.json(userProfile);
+  db.User.find((err, allUsers) => {
+    if(err) throw err;
+    res.json(allUsers);
+  });
 });
 
 
+app.get('/api/comments', (req, res) => {
+  db.Comment.find((err, allComments) => {
+    if(err) throw err;
+    res.json(allComments);
+  });
+});
 
 
 

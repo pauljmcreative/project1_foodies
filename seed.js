@@ -4,7 +4,7 @@ const db = require('./models');
 
 
 
-let userProfile = [
+const userProfile = [
 {
   user: 'k-nuggets',
   password: 'abc123',
@@ -25,7 +25,7 @@ let userProfile = [
 
 
 
-let userComments = [
+const userComments = [
 {
   user: 'Kenny B nuggets',
   message: 'I lie awake at night assured these two will cure cancer based on their development skills.'
@@ -39,3 +39,38 @@ let userComments = [
   message: 'Broooooooooooooooooooo!  I love sandwiches.'
 },
 ];
+
+
+db.User.remove({}, function (err, removeUsers) {
+  if(err) {
+    console.log(`Error occurred ${err}`);
+  }
+  db.User.create(userProfile, function(err, newUsers) {
+    if(err) {
+      console.log('error:', err);
+    }
+    console.log(`Created new gallery \n ${newUsers}`)
+  });
+});
+
+
+db.Comment.remove({}, function (err, removeComments) {
+  if(err) {
+    console.log(`Error occurred ${err}`);
+  }
+  db.Comment.create(userComments, function(err, newComments) {
+    if(err) {
+      console.log('error:', err);
+    }
+    console.log(`Created new comments \n ${newComments}`)
+    process.exit();
+  });
+});
+
+
+
+
+
+
+
+
