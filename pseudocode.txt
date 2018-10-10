@@ -1,0 +1,163 @@
+NAV BAR
+user selects home, scroll to top of page
+user selects about, scroll to about
+user selects message, scroll to message
+//event listener for nav links
+//use this - attr(id) - use that as the link destination
+//add ids to home, about and message sections
+//use scrollTop .offset().top
+//add speed and window location (= to the element scrolling to)
+//bind end location to id
+
+
+LOG IN -- Defer to end
+user select log in, show login drop down with user name and password and submit
+//create the drop down - put styling in class, 
+//create hide class with display: none,
+//event listener for log in button
+//toggle drop down, toggle hide class
+
+after submit, drop down close
+//event lister for submit, toggle dropdown, toggle hide class
+
+show personal greeting
+//use submit event listener
+//pull user name from db
+//show user name --> dynamically add to header from js - create as a link
+//not show log in button
+//not show sign up button
+
+show link to profile so they can edit
+//create even lister for profile link
+//create function to show profile dropdown - profile dropdown content - dynamic from js
+
+
+PROFILE
+//add link to profile in header
+
+select link to profile, show profile dropdown
+//event listener for profile link
+
+prof drop includes name, password, food preferences 
+//use api/user to get data
+//use dynaimic js to show in ui - build dropdown - include the delete and edit buttons
+
+edit option --> allow to select/deselect food pref
+//create new form - use existing data as values
+
+save changes  --> saves changes for food pref to db
+//get user id for user we're updating - save this as the value of the id attribut for the submit button
+//event listener for submit
+//grabbing new values update db
+//create new variables for each piece of data
+//create one "data" variable to pass as data through api
+//convert data to string 
+  **if fetch stringify (convert js to json string)**
+
+delete profile --> deletes user from db
+//event listener for delete
+//get id for user
+//use .remove() to remove user from user db
+
+
+SIGN UP 
+//create sign up dropdown - hard code in html/css
+//add hide class 
+
+show sign up dropdown
+//event listener for sign up link
+
+sign up drop down has name, password, food pref
+//toggle created sign up dropdown
+//toggle hide class
+
+save --> save new user to db
+//create new user in db (POST)
+//toggle hide and drop down
+//toggle profile link/greeting
+
+cancel --> exit without saving changes
+//toggle hide and drop down
+//no changes sent to db
+//no greeting, no profile link - just show log in and sign up (back to default)
+
+
+SEARCH  
+Show website name and tagline
+//hard coded
+
+Show pretty food pic in backgronud
+//hard coded
+
+search area has text field for city, country
+//hard coded
+
+city and country are required (don't add validation yet)
+cuisine type - drop down with check boxes - not required
+//hard code
+
+submit button
+when selet submit
+//event listener for submit
+-->find restaurants that match city and country - use zomato api to find rest in city/country
+//call zomato api
+//get city, country, restaurants
+//if city and country match user input for city and country
+//then show a restaurant that same city and country
+
+-->show results section below the search section(above about us)-scroll/slide to expose results section
+//dynamically create result section ... GO TO RESULTS
+
+
+RESULTS
+show nice big image - from rest - zomato api
+show rest name - zom api
+res street address - zom api
+cusine type/des of res - zom api
+
+//dynamically add content for a restaurant:
+  //picture
+  //name
+  //address
+//includes code for animation
+  
+see next restaurant...
+when user selects next, slide/scroll in from right to show next rest (image, name, address, cuisine)
+when user selects previous, slide/scroll in from left to show last rest.
+//unclear whether create dynamically or hard code and dynamically add content
+
+
+ABOUT US
+show description of website/mission statement - hard coded text
+show pretty food pic in background 
+
+
+COMMENTS
+Show one comment -> from comment db
+//get comments from api/comments
+//dynamically create value and add to parent
+
+Comments fade in/out
+//iterate through each comment in comments array, by index number
+//toggle show class to show item
+//set a time
+//reset to not having show class
+
+Show form to add comment
+//hard code
+
+Form has comment field and name field
+//hard code
+
+Submit button
+//hard coded
+
+when submit --> comment is saved to the db for that user
+//POST request to api/comments
+
+
+FOOTER
+Company name
+
+
+

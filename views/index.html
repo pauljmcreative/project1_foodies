@@ -21,12 +21,44 @@
       </ul>
     </nav>
 
+    <section class="create-user">
+      <form method="POST" action="http://localhost:3000/api/users">
+        <input type="text" placeholder="user name" name="user" value="">
+        <input type="text" placeholder="password" name="password" value="">
+        <input type="submit" name="SUBMIT">
+      </form>
+    </section>
+
   </header>
 
   <main>
     <section class="search-section">
       <h1>FOODIES UNITE!</h1>
       <h2>For travel enthusiasts who love to eat...</h2>
+      <form method="GET">
+        <input id="cityName" type="text" name="city" placeholder="City..." value=""/>
+        <input type="text" name="country" placeholder="Country..." value=""/>
+        <input class="hide" type="text" name="cuisine" value="select cuisine"/>
+
+        <fieldset class="cuisine-select">
+          <div>
+            <input type="checkbox" id="mexican" name="cuisine-type">
+            <label for="mexican">Mexican</label>
+          </div>
+          <div>
+            <input type="checkbox" id="italian" name="cuisine-type">
+            <label for="italian">Italian</label>
+          </div>
+          <div>
+            <input type="checkbox" id="vegetarian" name="cuisine-type">
+            <label for="vegetarian">Vegetarian</label>
+          </div>
+        </fieldset>
+
+        <input type="submit" id="cuisine-submit" name="submit"/>
+      </form>
+
+
     </section>
 
     <section class="results-section">
@@ -36,28 +68,14 @@
     </section>
 
     <section class="comments-section" id="comments">
-    </section>
-
-
-
-
-
-
-    <section class="create-user">
-      <form method="POST" action="http://localhost:3000/api/users">
-        <input type="text" placeholder="user name" name="user" value="">
-        <input type="text" placeholder="password" name="password" value="">
-        <input type="submit" name="SUBMIT">
-      </form>
-    </section>
-
-    <section class="comments-form">
-      <form method="POST" action="http://localhost:3000/api/comments">
+      <form class="comments-form" method="POST" action="http://localhost:3000/api/comments">
         <input type="text" name="name" placeholder="enter your name...">
         <textarea name="message" id="message" placeholder="Drop us a line..."></textarea>
         <input type="submit" name="SUBMIT">
       </form>
     </section>
+
+    
 
     <button id="delete" name="delete">DELETE</button>
 
