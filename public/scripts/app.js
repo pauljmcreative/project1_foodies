@@ -61,7 +61,7 @@ const getUsers = (event) => {
       .then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log(err));
-      //call the function to show user prof in ui
+     viewProfile(); 
   }
 
   $('#submit-user').on('click', getUsers);
@@ -70,16 +70,17 @@ function viewProfile () {
 //create a box
 $('#profile-greeting').append(`
   <div class="user-profile-info">
-  
+  <p>User Name: </p>
+  <p>Password: </p>
+  <button>Edit</button>
   </div>
-
 `)
-
+}; 
 //with a form
 //add user name
 //add password
 //add edit
-} 
+
 
 
 
