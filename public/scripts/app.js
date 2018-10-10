@@ -6,8 +6,8 @@ $(document).ready(function(){
 const baseUrl = 'http://localhost:3000/api/';
 const users = 'users/';
 const comments = 'comments/';
-const zomato = 'https://developers.zomato.com/api/v2.1/';
-const zomatoKey = '64ec316d35f97e2df01286cf2d5f00df';
+const zomato = 'https://developers.zomato.com/api/v2.1';
+const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 
 
 
@@ -15,6 +15,7 @@ const zomatoKey = '64ec316d35f97e2df01286cf2d5f00df';
 ///////ask for explanation...
 
   $("a").on('click', function(event) {
+    console.log('Hash = ' + this.hash)
     if (this.hash !== "") {
       event.preventDefault();
       let hash = this.hash;
@@ -32,7 +33,6 @@ const zomatoKey = '64ec316d35f97e2df01286cf2d5f00df';
 ///////////SMOOTH SCROLL BINDING TO ANCHOR/////////////////
  $(function() {
     $('.nav-buttons a').bind('click',function(event){
-      let $anchor = $(this);
       event.preventDefault();
       $('.nav-buttons a').removeClass('active');
       $(this).addClass('active');
@@ -43,17 +43,44 @@ const zomatoKey = '64ec316d35f97e2df01286cf2d5f00df';
 /////SIGNUP FORM//////////////
 
 
+/////USER PROFILE//////////////
+
+// Pulling profile data for logged in user to display on profile greeting link dropdown menu to edit
+ // const getMyGallery = () => {
+ //        fetch(galleryUrl)
+ //            .then(res => res.json())
+ //            .then(galleries => renderGallery(galleries))
+ //            .catch(err => console.log(err));
+ //    }
+ //    getMyGallery();
 
 
+const getUsers = (event) => {
+    event.preventDefault();
+    fetch(baseUrl + users)  
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+      //call the function to show user prof in ui
+  }
 
-// const getCuisines = () => {
-//     fetch(######)
-//       .then(res => res.json())
-//       .then(cuisines => render(cuisines))
-//       .catch(err => console.log(err));
-//   }
+  $('#submit-user').on('click', getUsers);
 
-//   getCuisines();
+function viewProfile () {
+//create a box
+$('#profile-greeting').append(`
+  <div class="user-profile-info">
+  
+  </div>
+
+`)
+
+//with a form
+//add user name
+//add password
+//add edit
+} 
+
 
 
 // const cuisineSubmit = (event) =>{
@@ -88,8 +115,8 @@ function findCityId (event) {
   const query = encodeURI(document.getElementById('cityName').value);
   let cityId = null;
   event.preventDefault();
-
-  console.log('Calling Home...')
+  console.log('City Name = ' + query)
+  console.log('Requesting City ID...')
   fetch(`${zomato}/cities?q=${query}`, {
     headers: {
       "user-key": zomatoKey
@@ -98,7 +125,7 @@ function findCityId (event) {
     .then(res => res.json())
     .then(data => {
       console.log(data);
-      cityID = data.location_suggestions[0].id;
+      cityId = data.location_suggestions[0].id;
       console.log(cityId);
       getCityRestaurants(cityId)
     });
@@ -111,8 +138,9 @@ function findCityId (event) {
 };
 
 function getCityRestaurants(cityId) {
-  // ?entity_id=10831&entity_type=city
-  fetch(zomato + 'search', {
+
+  console.log('City ID = ' + cityId)
+  fetch(`${zomato}/search?entity_id=${cityId}&entity_type=city`, {
     headers: {
       "user-key": "64ec316d35f97e2df01286cf2d5f00df"
     }
@@ -122,10 +150,6 @@ function getCityRestaurants(cityId) {
 }
 
 $('#cuisine-submit').on('click', findCityId);
-
-
-
-
 
 
 //end of document ready
