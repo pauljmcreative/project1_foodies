@@ -5,21 +5,11 @@ body {
   max-width: 1200px;
   text-align: center;
 }
-
+/*NAV SECTION*/
 nav {
   display: flex;
   flex-direction: row;
   background-color: #f2f2f2;
-}
-
-h1 {
-  font-size: 40px;
-  color: #6FB7FF;
-}
-
-li {
-  list-style-type: none;
-  color: white;
 }
 
 a {
@@ -27,6 +17,11 @@ a {
   text-decoration: none;
   list-style-type: none;
   padding: 0 20px;
+}
+
+li {
+  list-style-type: none;
+  color: white;
 }
 
 .nav-buttons {
@@ -40,7 +35,13 @@ a {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+/*-----------------------*/
 
+/*HEADER*/
+h1 {
+  font-size: 40px;
+  color: #6FB7FF;
 }
 
 #pics {
@@ -50,6 +51,29 @@ a {
   margin: 0 auto;
 }
 
+/*MAIN*/
+/*Search*/
 
+.search-section {
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
 
+/*About*/
+.about-us-section {
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
+
+/*Comments*/
+.comments-section {
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
 

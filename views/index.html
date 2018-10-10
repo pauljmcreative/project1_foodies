@@ -7,27 +7,43 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+  <header id="home">
+    <nav>
+      <ul class="nav-buttons">
+        <li><a href="#home">home</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#comments">message</a></li>
+        <section class="user-buttons">
+          <button>LOG IN</button>
+          <button>SIGN UP</button>
+        </section>
+        <div id=profile-greeting>Greeting</div>
+      </ul>
+    </nav>
 
-  <nav>
-    <ul class="nav-buttons">
-      <li><a href="#">home</a></li>
-      <li><a href="#">about</a></li>
-      <li><a href="#">message</a></li>
-      <div class="user-buttons">
-        <button>LOG IN</button>
-        <button>SIGN UP</button>
-      </div>
-    </ul>
-    
-  </nav>
-
-  <header>
-    <h1>FOODIES UNITE!</h1>
-    <h2>For travel enthusiasts who love to eat...</h2>
   </header>
 
   <main>
-    <section id="create-user">
+    <section class="search-section">
+      <h1>FOODIES UNITE!</h1>
+      <h2>For travel enthusiasts who love to eat...</h2>
+    </section>
+
+    <section class="results-section">
+    </section>
+
+    <section class="about-us-section" id="about">
+    </section>
+
+    <section class="comments-section" id="comments">
+    </section>
+
+
+
+
+
+
+    <section class="create-user">
       <form method="POST" action="http://localhost:3000/api/users">
         <input type="text" placeholder="user name" name="user" value="">
         <input type="text" placeholder="password" name="password" value="">
@@ -35,7 +51,7 @@
       </form>
     </section>
 
-    <section>
+    <section class="comments-form">
       <form method="POST" action="http://localhost:3000/api/comments">
         <input type="text" name="name" placeholder="enter your name...">
         <textarea name="message" id="message" placeholder="Drop us a line..."></textarea>
