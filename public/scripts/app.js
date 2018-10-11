@@ -39,10 +39,7 @@ const commentResults = document.getElementById('commentContainer')
 
 /////SIGNUP FORM//////////////
 
-
 /////USER PROFILE//////////////
-
-
 //get all user profiles
 // const getUsers = (event) => {
 //     event.preventDefault();
@@ -62,9 +59,6 @@ const renderComments = (comments) => {
   commentResults.innerHTML = '';
   document.querySelector('.comments-form').children[0] = '';
   document.querySelector('.comments-form').children[1] = '';
-
-  // console.log('what are:' + comments);
-
   comments.forEach(comment => {
     // console.log(comment.message);
 
@@ -83,7 +77,6 @@ const renderComments = (comments) => {
 const getComments = () => {
   fetch(baseUrl + comments)
     .then(res => res.json())
-    // .then(comments => console.log(comments))
     .then(comments => renderComments(comments))
     .catch(err => console.log(err));
 }
@@ -117,11 +110,8 @@ function commentCarousel() {
   let commentIndex = 0;
   setInterval(function(){
     const commentResultsArray = $('#commentContainer .comment-results');
-    console.log("results array:" + commentResultsArray);
-    // $('#commentContainer.children').toggleClass('show');
     commentIndex += 1;
     if (commentIndex > commentResultsArray.length -1) {commentIndex = 0}
-    // $('.commentContainer').children().attr('class', 'comment-results');  
     $('.comment-results').eq(commentIndex).siblings().attr('class', 'comment-results');
     $('.comment-results').eq(commentIndex).attr('class', 'show');
     
@@ -132,30 +122,20 @@ function commentCarousel() {
 // find restaurants that match city and country - use zomato api to find rest in city/country
 function findCityId (event) {
   event.preventDefault();
-
   const query = encodeURI(document.getElementById('cityName').value);
-  let cityId = null;
-  
-  console.log('City Name = ' + query)
-  console.log('Requesting City ID...')
-  
+  let cityId = null;  
   fetch(`${zomato}/cities?q=${query}`, {
     headers: {
       "user-key": zomatoKey
     }
   }).then(res => res.json())
     .then(data => {
-      console.log(data);
       cityId = data.location_suggestions[0].id;
-      console.log(cityId);
-      getCityRestaurants(cityId)
+      getCityRestaurants(cityId);
   });
-
 };
 
 function getCityRestaurants(cityId) {
-
-  console.log('City ID = ' + cityId)
   fetch(`${zomato}/search?entity_id=${cityId}&entity_type=city`, {
     headers: {
       "user-key": "64ec316d35f97e2df01286cf2d5f00df"
@@ -163,33 +143,26 @@ function getCityRestaurants(cityId) {
   })
     .then(res => res.json())
     .then((data) => {
-      console.log(data)
+      console.log(data);
+      const restaurants = data.restaurants;
+      zomatoResponse(restaurants);
     });
 };
 
-// const imageUrl = data.restaurants[0].restaurant.featured_image
 
-// const ZomatoResponse = (res) => {
-//   res.forEach(function (image) {
-//         $('.results-section').append(`
+//const imageUrl = data.restaurants[0].restaurant.featured_image;
 
-//           <div class="zomato-images">
-//             <img src="${res.data.restaurants.featured.url}">
-//             <div class="btn-group">
-//               <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-//               <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-//             </div>
-//             <small class="text-muted">9 mins</small>
-//           </div>
+const zomatoResponse = (data) => {
+  console.log(data[0].restaurant);
+  const results = document.querySelector('.results-section');
+  data.forEach((item, index) => {
+    let image = item.restaurant.featured_image ? item.restaurant.featured_image : `http://picsum.photos/200?image=${index}`
 
-//         `),
-//   });
-
-
-// };
-
-
-
+    results.insertAdjacentHTML('afterbegin', `
+      <img src="${image}" alt="${item.restaurant.name}" width="200" />
+    `)
+  })
+};
 
 
 $('#cuisine-submit').on('click', findCityId);
