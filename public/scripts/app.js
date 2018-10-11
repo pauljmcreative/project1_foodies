@@ -12,8 +12,6 @@ const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 
 
 ///////////SMOOTH SCROLL/////////////////
-///////ask for explanation...
-
   $("a").on('click', function(event) {
     console.log('Hash = ' + this.hash)
     if (this.hash !== "") {
@@ -30,7 +28,6 @@ const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
     }
   });
 
-///////////SMOOTH SCROLL BINDING TO ANCHOR/////////////////
  $(function() {
     $('.nav-buttons a').bind('click',function(event){
       event.preventDefault();
@@ -43,72 +40,58 @@ const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 /////SIGNUP FORM//////////////
 
 
-/////USER PROFILE//////////////
-
-// Pulling profile data for logged in user to display on profile greeting link dropdown menu to edit
- // const getMyGallery = () => {
- //        fetch(galleryUrl)
- //            .then(res => res.json())
- //            .then(galleries => renderGallery(galleries))
- //            .catch(err => console.log(err));
- //    }
- //    getMyGallery();
-
-
-const getUsers = (event) => {
-    event.preventDefault();
-    fetch(baseUrl + users)  
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
-     viewProfile(); 
-  }
-
-  $('#submit-user').on('click', getUsers);
-
-function viewProfile () {
-//create a box
-$('#profile-greeting').append(`
-  <div class="user-profile-info">
-  <p>User Name: </p>
-  <p>Password: </p>
-  <button>Edit</button>
-  </div>
-`)
-}; 
-//with a form
-//add user name
-//add password
-//add edit
 
 
 
 
-// const cuisineSubmit = (event) =>{
-//         event.preventDefault();
-//         console.log('form submitted');
-//         const profileName = $(#username). document.getElementById('username').value;
-//         const profilePassword = document.getElementById('password').value;
-//         const profileFoodPref = document.getElementById('foodPref').value;
-//         const profileData = {username: profileName, password: profilePassword, foodPref: profileFoodPref};
 
-//         fetch(baseUrl, {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json; charset=utf-8",
-//             },
-//             body: JSON.stringify(data),
-//         })
-//             .then(res => res.json())
-//             .then(() => getProjects())
-//             .catch(err => console.log(err));
-//     }
+
+
+
+
+
+
+
 
 
 // const render = (users) => {
-// console.log(users);
+//   console.log(users);
+// }
 
-// lat long zomato url:  var zUrl = `https://developers.zomato.com/api/v2.1/search?lat=${pos.lat}&lon=${pos.lng}&cuisines=${cuisines}&sort=real_distance` 
+//   users.forEach(user => {
+//            console.log(user.username);
+//           $('#profile-greeting').insertAdjacentHTML('afterbegin', `
+//               <div id="project-results">
+//                   <p><strong>${project.name}</strong></p>
+//                   <p><strong>${project.date}</strong></p>
+//                   <p><strong>${project.description}</strong></p>
+//                   <p><strong>${project.techstack}</strong></p>
+//                   <img src="${project.screenshot}">
+//                   <small id="${project._id}">EDIT</small>
+//                   <small id="${project._id}">DELETE</small>
+//               </div>
+//     `)
+//   });
+// }
+
+
+
+
+/////USER PROFILE//////////////
+
+
+//get all user profiles
+// const getUsers = (event) => {
+//     event.preventDefault();
+//     fetch(baseUrl + users)  
+//       .then(res => res.json())
+//       .then(data => {
+//       }console.log(data[0]._id))
+//       .catch(err => console.log(err))
+//   }
+
+//   $('#submit-user').on('click', getUsers);
+
 
 
 //-->find restaurants that match city and country - use zomato api to find rest in city/country
