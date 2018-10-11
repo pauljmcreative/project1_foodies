@@ -8,7 +8,7 @@ const users = 'users/';
 const comments = 'comments/';
 const zomato = 'https://developers.zomato.com/api/v2.1';
 const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
-
+const commentResults = document.getElementById('commentContainer')
 
 
 ///////////SMOOTH SCROLL/////////////////
@@ -40,43 +40,6 @@ const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 /////SIGNUP FORM//////////////
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const render = (users) => {
-//   console.log(users);
-// }
-
-//   users.forEach(user => {
-//            console.log(user.username);
-//           $('#profile-greeting').insertAdjacentHTML('afterbegin', `
-//               <div id="project-results">
-//                   <p><strong>${project.name}</strong></p>
-//                   <p><strong>${project.date}</strong></p>
-//                   <p><strong>${project.description}</strong></p>
-//                   <p><strong>${project.techstack}</strong></p>
-//                   <img src="${project.screenshot}">
-//                   <small id="${project._id}">EDIT</small>
-//                   <small id="${project._id}">DELETE</small>
-//               </div>
-//     `)
-//   });
-// }
-
-
-
-
 /////USER PROFILE//////////////
 
 
@@ -90,8 +53,40 @@ const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 //       .catch(err => console.log(err))
 //   }
 
-//   $('#submit-user').on('click', getUsers);
+////////COMMENTS SECTION///////////////////
+const renderComments = (comments) => {
+  console.log(comments);
+  let commentContainer = document.getElementById("commentContainer")
 
+  //clears each time so no duplicate data
+  commentResults.innerHTML = '';
+  .comments-form.children[0] = '';
+  .comments-form.children[1] = '';
+
+  comments.forEach(comment => {
+    console.log(comment.message);
+
+    commentContainer.insertAdjacentHTML('afterbegin', `
+      <div class="comment-results">
+          <p><strong>${comment.name}</strong></p>
+          <p><strong>${comment.message}</strong></p>
+      </div>
+    `)
+  });
+}
+
+
+const getComments = () => {
+  fetch(baseUrl + comments)
+    .then(res => res.json())
+    .then(comments => renderComments(comments))
+    .catch(err => console.log(err));
+}
+getComments();
+
+
+
+ // .then(comments => renderComments(comments))
 
 
 //-->find restaurants that match city and country - use zomato api to find rest in city/country
@@ -114,11 +109,6 @@ function findCityId (event) {
       getCityRestaurants(cityId)
     });
 
-//call zomato api
-//get city, country, restaurants
-//if city and country match user input for city and country
-//then show a restaurant that same city and country
-
 };
 
 function getCityRestaurants(cityId) {
@@ -130,10 +120,38 @@ function getCityRestaurants(cityId) {
     }
   })
     .then(res => res.json())
-    .then(data => console.log(data));
-}
+    .then((data) => {
+      console.log(data)
+    });
+};
+
+// const imageUrl = data.restaurants[0].restaurant.featured_image
+
+// const ZomatoResponse = (res) => {
+//   res.forEach(function (image) {
+//         $('.results-section').append(`
+
+//           <div class="zomato-images">
+//             <img src="${res.data.restaurants.featured.url}">
+//             <div class="btn-group">
+//               <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+//               <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+//             </div>
+//             <small class="text-muted">9 mins</small>
+//           </div>
+
+//         `),
+//   });
+
+
+// };
+
+
+
+
 
 $('#cuisine-submit').on('click', findCityId);
+// $('#comment-submit').on('click', handleCommentSubmit);
 
 
 //end of document ready

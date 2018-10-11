@@ -166,41 +166,59 @@ $('#cuisine-submit').on('click', findCityId);
 ////////Get comments and post in carousel...///////////
 
 const renderComments = (comments) => {
-    console.log(comments);
+  console.log(comments);
+  let commentContainer = document.getElementById("commentContainer")
 
-    //clears each time so no duplicate data
-    commentResults.innerHTML = '';
-    form.children[0] = '';
-    form.children[1] = '';
+  //clears each time so no duplicate data
+  commentResults.innerHTML = '';
+  form.children[0] = '';
+  form.children[1] = '';
 
-    comments.forEach(comment => {
-             console.log(comment.message);
-            results.insertAdjacentHTML('afterbegin', `
-                <div id="comment-results">
-                    <p><strong>${comment.name}</strong></p>
-                    <p><strong>${comment.message}</strong></p>
-                </div>
-      `)
+  comments.forEach(comment => {
+    console.log(comment.message);
 
-    });
-  }
+    commentContainer.insertAdjacentHTML('afterbegin', `
+      <div class="comment-results">
+          <p><strong>${comment.name}</strong></p>
+          <p><strong>${comment.message}</strong></p>
+      </div>
+    `)
+  });
+}
 
 const getComments = () => {
-    fetch(baseUrl + comments)
-      .then(res => res.json())
-      .then(comments => renderComments(comments))
-      .catch(err => console.log(err));
-  }
-
-  getComments( =>{
-    console.log(getComments)
-  });
+  fetch(baseUrl + comments)
+    .then(res => res.json())
+    .then(comments => renderComments(comments))
+    .catch(err => console.log(err));
+}
+getComments();
 
 
+const handleCommentSubmit = (event) => {
+  event.preventDefault();
+  console.log('message submitted');
+  
+  const dummyUsername = "Paul21";
+  const userComment = document.getElementById('message').value;
+  const commentData = {username: dummyUsername, message: userComment};
 
+  fetch((baseUrl + comments), {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(data),
+  })
+    .then(res => res.json())
+    .then(data => renderComments(data))
+    .catch(err => console.log(err));
+}
+
+
+/////revolving carousel////////////
 let commentIndex = 0;
 setInterval(function(){
-
   $('#comment-results.children').attr('id', '');
   commentIndex += 1;
   if (commentIndex > $('#comment-results').length -1) {commentIndex = 0}
