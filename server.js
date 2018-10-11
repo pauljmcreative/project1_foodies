@@ -75,11 +75,17 @@ app.get('/api/comments', (req, res) => {
 
 
 app.post('/api/comments', (req, res) => {
-  console.log(req.body);
-  db.Comment.create(req.body, (err, newComment) => {
-    if(err) throw err;
-    console.log(newComment)
-    res.json(newComment);
+  // console.log(req.body);
+  db.User.find((err, users) => {
+    const user = users[0];
+    const commentData = {user: user, message: req.body.message}
+    db.Comment.create(commentData, (err, newComment) => {
+      if(err) throw err;
+      newComment.user = user;
+      newComment.save((err, savedUser) => {
+        res.json(newComment);
+      });
+    });
   });
 });
 
@@ -90,9 +96,82 @@ app.put('/api/comments/:id', (req, res) => {
   });
 });
 
+app.get('/api/nuke', (req, res) => {
+  db.User.deleteMany(err => {
+    if (err) throw err;
+    db.Comment.deleteMany(err => {
+      if (err) throw err;
+      res.send('<h1>Database Nuked...</h1>');
+    });
+  });
+});
 
 
+app.get('/api/seed', (req, res) => {
 
+  const userProfiles = [
+  {
+    username: 'k-nuggets',
+    password: 'abc123',
+    foodPref: ['italian', 'mexican']
+  },
+  {
+    username: 'poutine4ever',
+    password: 'toronto1',
+    foodPref: ['mexican', 'french']
+  },
+  {
+    username: 'markymark',
+    password: 'gatorsrule1',
+    foodPref: ['american', 'mexican']
+  }
+  ];
+
+  const userComments = [
+    {
+      message: 'I lie awake at night assured these two will cure cancer based on their development skills.'
+    },
+    {
+      message: 'I love poutine and I love these guys.  Their work is poutine.'
+    },
+    {
+      message: 'Broooooooooooooooooooo!  I love sandwiches.'
+    },
+  ];
+
+  // Delete all Users
+  db.User.deleteMany(err => {
+    if (err) throw err;
+    console.log('All users deleted successfully');
+
+    // Delete all comments
+    db.Comment.deleteMany(err => {
+      if (err) throw err;
+      console.log('All comments deleted successfully');
+
+      // Create new users
+      db.User.create(userProfiles, (err, newProfiles) => {
+        if (err) throw err;
+        console.log(`Created ${newProfiles.length} new user profiles successfully.`);
+
+        // Create new comments
+        db.Comment.create(userComments, (err, newComments) => {
+          if (err) throw err;
+          console.log(`Created ${newComments.length} new comments successfully`);
+
+          // Associate comments with users
+          newComments.forEach((comment, index) => {
+            comment.user = newProfiles[index];
+            console.log(`Comment #${index} saved successfully.`);
+            comment.save();
+            if (index === newProfiles.length - 1) res.send('<h1>Database Seeded...</h1>');
+          })
+        })
+      })
+    })
+  })
+
+})
 
 
 //Listen on port 3000

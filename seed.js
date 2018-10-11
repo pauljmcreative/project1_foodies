@@ -62,15 +62,12 @@ db.User.deleteMany(err => {
           comment.user = newProfiles[index];
           console.log(`Comment #${index} saved successfully.`);
           comment.save();
-          // if (index === newProfiles.length - 1) {
-          //   console.log(`Index = ${index} and Profile length = ${newProfiles.length - 1}`)
-          //   process.exit();
-          // }
-        })
-      })
-    })
-  })
-})
+          if (index === newProfiles.length - 1) process.exit();
+        });
+      });
+    });
+  });
+});
 
 
 

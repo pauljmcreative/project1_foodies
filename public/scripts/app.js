@@ -53,61 +53,103 @@ const commentResults = document.getElementById('commentContainer')
 //       .catch(err => console.log(err))
 //   }
 
-////////COMMENTS SECTION///////////////////
+///////////HANDLE COMMENTS///////////////////////
 const renderComments = (comments) => {
-  console.log(comments);
+
   let commentContainer = document.getElementById("commentContainer")
 
   //clears each time so no duplicate data
   commentResults.innerHTML = '';
-  .comments-form.children[0] = '';
-  .comments-form.children[1] = '';
+  document.querySelector('.comments-form').children[0] = '';
+  document.querySelector('.comments-form').children[1] = '';
+
+  // console.log('what are:' + comments);
 
   comments.forEach(comment => {
-    console.log(comment.message);
+    // console.log(comment.message);
 
     commentContainer.insertAdjacentHTML('afterbegin', `
       <div class="comment-results">
-          <p><strong>${comment.name}</strong></p>
+          <p><strong>${comment.user.username}</strong></p>
           <p><strong>${comment.message}</strong></p>
       </div>
     `)
   });
+
+  commentCarousel();
 }
 
 
 const getComments = () => {
   fetch(baseUrl + comments)
     .then(res => res.json())
+    // .then(comments => console.log(comments))
     .then(comments => renderComments(comments))
     .catch(err => console.log(err));
 }
 getComments();
 
 
+const handleCommentSubmit = (event) => {
+  event.preventDefault();
+  console.log('message submitted');
+  
+  const userComment = document.getElementById('message').value;
+  const commentData = { message: userComment };
 
- // .then(comments => renderComments(comments))
+  fetch((baseUrl + comments), {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(commentData),
+  })
+    .then(res => res.json())
+    .then((data) => {
+      getComments();
+    })
+    .catch(err => console.log(err));
+}
 
 
-//-->find restaurants that match city and country - use zomato api to find rest in city/country
+function commentCarousel() {
+  console.log('Carouselling...')
+  let commentIndex = 0;
+  setInterval(function(){
+    const commentResultsArray = $('#commentContainer .comment-results');
+    console.log("results array:" + commentResultsArray);
+    // $('#commentContainer.children').toggleClass('show');
+    commentIndex += 1;
+    if (commentIndex > commentResultsArray.length -1) {commentIndex = 0}
+    // $('.commentContainer').children().attr('class', 'comment-results');  
+    $('.comment-results').eq(commentIndex).siblings().attr('class', 'comment-results');
+    $('.comment-results').eq(commentIndex).attr('class', 'show');
+    
+  },5000);
+}
+
+
+// find restaurants that match city and country - use zomato api to find rest in city/country
 function findCityId (event) {
+  event.preventDefault();
+
   const query = encodeURI(document.getElementById('cityName').value);
   let cityId = null;
-  event.preventDefault();
+  
   console.log('City Name = ' + query)
   console.log('Requesting City ID...')
+  
   fetch(`${zomato}/cities?q=${query}`, {
     headers: {
       "user-key": zomatoKey
     }
-  })
-    .then(res => res.json())
+  }).then(res => res.json())
     .then(data => {
       console.log(data);
       cityId = data.location_suggestions[0].id;
       console.log(cityId);
       getCityRestaurants(cityId)
-    });
+  });
 
 };
 
@@ -151,7 +193,7 @@ function getCityRestaurants(cityId) {
 
 
 $('#cuisine-submit').on('click', findCityId);
-// $('#comment-submit').on('click', handleCommentSubmit);
+$('#comment-submit').on('click', handleCommentSubmit);
 
 
 //end of document ready
