@@ -196,23 +196,35 @@ const foundRestaurants = (data) => {
     </section>
     `);
 
-  //when user selects next button, increment i by 1
+  //when user selects next button, show next restaurant
   $('.next-button').on('click',() => {
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
-      let nextName = foundRestaurantsArray[i].restaurant.name;
-      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
-
       if (i < foundRestaurantsArray.length - 1) {
         i++;
-        console.log("i is " + i);
       } else {
         i=0;
       };
 
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextName = foundRestaurantsArray[i].restaurant.name;
+      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+
       $('.restaurant-name').text(nextName);
       $('.restaurant-address').text(nextAddress);
       $('.restaurant-carousel img').attr('src', nextImage);
+  });
 
+    $('.previous-button').on('click',() => {
+      if (i > 0 && i < foundRestaurantsArray.length - 1) {
+        i--
+      };
+
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextName = foundRestaurantsArray[i].restaurant.name;
+      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+      
+      $('.restaurant-name').text(nextName);
+      $('.restaurant-address').text(nextAddress);
+      $('.restaurant-carousel img').attr('src', nextImage);
   });
 
 };  
