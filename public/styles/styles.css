@@ -96,10 +96,43 @@ h1 {
 
 /*Comments*/
 .comments-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   height: 400px;
   width: 100%;
   border: 2px solid white;
   margin: 0 auto;
+}
+
+#comment container {
+  margin-right: 60px;
+}
+
+.comments-section form input {
+  height: 30px;
+  width: 400px;
+}
+
+.comments-section form textarea {
+  height: 200px;
+  width: 100%;
+}
+
+.comments-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#comment-submit {
+  height 30px;
+  width: 25%;
+}
+
+.submit-embedded {
+  text-align: right;
 }
 
 .comment-results {
