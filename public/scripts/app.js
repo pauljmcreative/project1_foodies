@@ -148,43 +148,42 @@ function getCityRestaurants(cityId) {
     .then(res => res.json())
     .then((data) => {
       const restaurants = data.restaurants;
-      zomatoResponse(restaurants);
+      //EL--remove--this function not needed-> zomatoResponse(restaurants);
       foundRestaurants(restaurants);
     });
 };
 
 
+
 ///EL --- Restaurant images------
 //EL---for each restaurant, get the featured image and display in results section------
-const zomatoResponse = (data) => {
-  const results = document.querySelector('.results-section');
-  //EL//for each restaurant, get featured image, if no featured image, use random from picsum
-  //add photos to results section
-  data.forEach((item, index) => {
-    let image = item.restaurant.featured_image ? item.restaurant.featured_image : `http://picsum.photos/200?image=${index}`
-    results.insertAdjacentHTML('afterbegin', `
-      <img src="${image}" alt="${item.restaurant.name}" width="200" />
-    `)
-  })
-};
+//EL--code to remove -not needed-----------
+// const zomatoResponse = (data) => {
+//   const results = document.querySelector('.results-section');
+//   //EL//for each restaurant, get featured image, if no featured image, use random from picsum
+//   //add photos to results section
+//   data.forEach((item, index) => {
+//     let image = item.restaurant.featured_image ? item.restaurant.featured_image : `http://picsum.photos/200?image=${index}`
+//     results.insertAdjacentHTML('afterbegin', `
+//       <img src="${image}" alt="${item.restaurant.name}" width="200" />
+//     `)
+//   })
+// };
+//EL end code to remove -------------------
 
 //EL--get array of all restaurants for a city
 const foundRestaurants = (data) => {
   let foundRestaurantsArray = data;
-  //console.log("array: " + foundRestaurantsArray[0]);
   //show one restaurant at a time
-  //get the first rest pic
+  //get the first rest pic, name, address
   let rImage = foundRestaurantsArray[0].restaurant.featured_image;
+  //TODO: or show default image
   let rName = foundRestaurantsArray[0].restaurant.name;
   let rAddress = foundRestaurantsArray[0].restaurant.location.address;
-  //console.log(`image: ${rImage}, name: ${rName}, address: ${rAddress}`);
-  
-}
+  console.log(`image: ${rImage}, name: ${rName}, address: ${rAddress}`);
+ }
 
 
-//show featured image //or show default image
-//show restaurant name
-//show restaurant address
 //from restaurants array, show first
 //when user selects next, show next
 
