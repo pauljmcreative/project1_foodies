@@ -118,13 +118,15 @@ function commentCarousel() {
   },5000);
 }
 
+////////////////////////////////////////
+/////Search for restaurants by city/////
+////////////////////////////////////////
 
-//Search////////
-
-// find restaurants that match city and country - use zomato api to find rest in city/country
-//triggerd by search submit
+//matches searched city name to zomato City ID
 function findCityId (event) {
   event.preventDefault();
+  //Remove results section
+  $('.results-section').empty();
   const query = encodeURI(document.getElementById('cityName').value);
   let cityId = null;  
   fetch(`${zomato}/cities?q=${query}`, {
@@ -138,7 +140,7 @@ function findCityId (event) {
   });
 };
 
-//triggered by findCityId function
+//Finds Zomato restaurants by Zomato CityID
 function getCityRestaurants(cityId) {
   fetch(`${zomato}/search?entity_id=${cityId}&entity_type=city`, {
     headers: {
@@ -148,31 +150,18 @@ function getCityRestaurants(cityId) {
     .then(res => res.json())
     .then((data) => {
       const restaurants = data.restaurants;
-      //EL--remove--this function not needed-> zomatoResponse(restaurants);
       foundRestaurants(restaurants);
     });
 };
 
 
 
-///EL --- Restaurant images------
-//EL---for each restaurant, get the featured image and display in results section------
-//EL--code to remove -not needed-----------
-// const zomatoResponse = (data) => {
-//   const results = document.querySelector('.results-section');
-//   //EL//for each restaurant, get featured image, if no featured image, use random from picsum
-//   //add photos to results section
-//   data.forEach((item, index) => {
-//     let image = item.restaurant.featured_image ? item.restaurant.featured_image : `http://picsum.photos/200?image=${index}`
-//     results.insertAdjacentHTML('afterbegin', `
-//       <img src="${image}" alt="${item.restaurant.name}" width="200" />
-//     `)
-//   })
-// };
-//EL end code to remove -------------------
+///////////////////////////////
+///////RESTAURANT CAROUSEL/////
+///////////////////////////////
 
-//EL--get array of all restaurants for a city
-//show one at a time, start with first, and increment on next button click
+//Get array of all restaurants for a city
+//Show first restaurant in results section
 const foundRestaurants = (data) => {
   let foundRestaurantsArray = data;
   let i = 0;
@@ -198,37 +187,34 @@ const foundRestaurants = (data) => {
 
   //when user selects next button, show next restaurant
   $('.next-button').on('click',() => {
-      if (i < foundRestaurantsArray.length - 1) {
-        i++;
-      } else {
-        i=0;
-      };
-
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
-      let nextName = foundRestaurantsArray[i].restaurant.name;
-      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
-
-      $('.restaurant-name').text(nextName);
-      $('.restaurant-address').text(nextAddress);
-      $('.restaurant-carousel img').attr('src', nextImage);
+    if (i < foundRestaurantsArray.length - 1) {
+      i++;
+    } else {
+      i=0;
+    };
+    let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+    let nextName = foundRestaurantsArray[i].restaurant.name;
+    let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+    $('.restaurant-name').text(nextName);
+    $('.restaurant-address').text(nextAddress);
+    $('.restaurant-carousel img').attr('src', nextImage);
   });
 
-    $('.previous-button').on('click',() => {
-      if (i > 0 && i < foundRestaurantsArray.length - 1) {
-        i--
-      };
-
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
-      let nextName = foundRestaurantsArray[i].restaurant.name;
-      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
-
-      $('.restaurant-name').text(nextName);
-      $('.restaurant-address').text(nextAddress);
-      $('.restaurant-carousel img').attr('src', nextImage);
+  //when user selects previous button, show previous restaurant
+  $('.previous-button').on('click',() => {
+    if (i > 0 && i < foundRestaurantsArray.length - 1) {
+      i--
+    };
+    let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+    let nextName = foundRestaurantsArray[i].restaurant.name;
+    let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+    $('.restaurant-name').text(nextName);
+    $('.restaurant-address').text(nextAddress);
+    $('.restaurant-carousel img').attr('src', nextImage);
   });
-
 };  
-//EL---end of code changes for restaurant carousel//////
+/////END RESTAURANT CAROUSEL//////
+//////////////////////////////////
 
 
 $('#cuisine-submit').on('click', findCityId);
