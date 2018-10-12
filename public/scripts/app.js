@@ -176,12 +176,13 @@ function getCityRestaurants(cityId) {
 const foundRestaurants = (data) => {
   let foundRestaurantsArray = data;
   let i = 0;
-  let rImage = foundRestaurantsArray[i].restaurant.featured_image;
-    //TODO: or show default image
-  let rName = foundRestaurantsArray[i].restaurant.name;
-  let rAddress = foundRestaurantsArray[i].restaurant.location.address;
+  
+  //show first restaurant initially
+  let rImage = foundRestaurantsArray[0].restaurant.featured_image;
+  //TODO: or show default image
+  let rName = foundRestaurantsArray[0].restaurant.name;
+  let rAddress = foundRestaurantsArray[0].restaurant.location.address;
 
-  //adds to DOM
   $('.results-section').append(`
     <section class="name-address">
       <h2 class="restaurant-name">${rName}</h2>
@@ -197,15 +198,24 @@ const foundRestaurants = (data) => {
 
   //when user selects next button, increment i by 1
   $('.next-button').on('click',() => {
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextName = foundRestaurantsArray[i].restaurant.name;
+      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+
       if (i < foundRestaurantsArray.length - 1) {
         i++;
         console.log("i is " + i);
+      } else {
+        i=0;
       };
+
+      $('.restaurant-name').text(nextName);
+      $('.restaurant-address').text(nextAddress);
+      $('.restaurant-carousel img').attr('src', nextImage);
 
   });
 
-};
-
+};  
 
 //show featured image //or show default image
 //show restaurant name
