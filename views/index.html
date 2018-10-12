@@ -82,7 +82,27 @@
 
     </section>
 
-    <div class="comment-flexbox">
+  <section class="comment-box">
+    <div class="comment-shell">
+      <h3>Tell us what you think...</h3>
+
+      <div class="comments-section" id="comments">
+        <div id="commentContainer"></div>
+
+        <form class="comments-form" method="POST" action="http://localhost:3000/api/comments">
+          <input type="text" name="name" placeholder="enter your name..." value=""/>
+          <textarea name="message" id="message" placeholder="Drop us a line..."></textarea>
+          <div>
+            <input type="submit" id="comment-submit" name="SUBMIT"/>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+    <!-- <div class="comment-flexbox">
       <section class="comments-section" id="comments">
         <h3>Tell us what you think...</h3>
         <div id="commentContainer"></div>
@@ -93,7 +113,7 @@
           <input type="submit" id="comment-submit" name="SUBMIT"/>
         </form>
       </section>
-    </div>
+    </div> -->
 
     <div id="pics"></div>
   </main>
