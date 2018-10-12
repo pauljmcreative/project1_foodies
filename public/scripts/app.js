@@ -176,14 +176,11 @@ function getCityRestaurants(cityId) {
 const foundRestaurants = (data) => {
   let foundRestaurantsArray = data;
   let i = 0;
-  //show first restaurant image, name, address
-  let rImage = foundRestaurantsArray[0].restaurant.featured_image;
-  //TODO: or show default image
-  let rName = foundRestaurantsArray[0].restaurant.name;
-  let rAddress = foundRestaurantsArray[0].restaurant.location.address;
-  
-  console.log(`image: ${rImage}, name: ${rName}, address: ${rAddress}`);
-  
+  let rImage = foundRestaurantsArray[i].restaurant.featured_image;
+    //TODO: or show default image
+  let rName = foundRestaurantsArray[i].restaurant.name;
+  let rAddress = foundRestaurantsArray[i].restaurant.location.address;
+
   //adds to DOM
   $('.results-section').append(`
     <section class="name-address">
@@ -196,8 +193,18 @@ const foundRestaurants = (data) => {
       <img src="${rImage}" alt="Photo of food at ${rName}."/>
       <button class="next-button">Next</button>
     </section>
-    `) 
-}
+    `);
+
+  //when user selects next button, increment i by 1
+  $('.next-button').on('click',() => {
+      if (i < foundRestaurantsArray.length - 1) {
+        i++;
+        console.log("i is " + i);
+      };
+
+  });
+
+};
 
 
 //show featured image //or show default image
