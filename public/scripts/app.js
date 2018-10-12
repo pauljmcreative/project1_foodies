@@ -172,18 +172,37 @@ function getCityRestaurants(cityId) {
 //EL end code to remove -------------------
 
 //EL--get array of all restaurants for a city
+//show one at a time, start with first, and increment on next button click
 const foundRestaurants = (data) => {
   let foundRestaurantsArray = data;
-  //show one restaurant at a time
-  //get the first rest pic, name, address
+  let i = 0;
+  //show first restaurant image, name, address
   let rImage = foundRestaurantsArray[0].restaurant.featured_image;
   //TODO: or show default image
   let rName = foundRestaurantsArray[0].restaurant.name;
   let rAddress = foundRestaurantsArray[0].restaurant.location.address;
+  
   console.log(`image: ${rImage}, name: ${rName}, address: ${rAddress}`);
- }
+  
+  //adds to DOM
+  $('.results-section').append(`
+    <section class="name-address">
+      <h2 class="restaurant-name">${rName}</h2>
+      <h3 class="restaurant-address">${rAddress}</h3>
+    </section>
+
+    <section class="restaurant-carousel">
+      <button class="previous-button">Previous</button>
+      <img src="${rImage}" alt="Photo of food at ${rName}."/>
+      <button class="next-button">Next</button>
+    </section>
+    `) 
+}
 
 
+//show featured image //or show default image
+//show restaurant name
+//show restaurant address
 //from restaurants array, show first
 //when user selects next, show next
 
