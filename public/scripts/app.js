@@ -119,7 +119,10 @@ function commentCarousel() {
 }
 
 
+//Search////////
+
 // find restaurants that match city and country - use zomato api to find rest in city/country
+//triggerd by search submit
 function findCityId (event) {
   event.preventDefault();
   const query = encodeURI(document.getElementById('cityName').value);
@@ -135,6 +138,7 @@ function findCityId (event) {
   });
 };
 
+//triggered by findCityId function
 function getCityRestaurants(cityId) {
   fetch(`${zomato}/search?entity_id=${cityId}&entity_type=city`, {
     headers: {
@@ -143,26 +147,88 @@ function getCityRestaurants(cityId) {
   })
     .then(res => res.json())
     .then((data) => {
-      console.log(data);
       const restaurants = data.restaurants;
-      zomatoResponse(restaurants);
+      //EL--remove--this function not needed-> zomatoResponse(restaurants);
+      foundRestaurants(restaurants);
     });
 };
 
 
-//const imageUrl = data.restaurants[0].restaurant.featured_image;
 
-const zomatoResponse = (data) => {
-  console.log(data[0].restaurant);
-  const results = document.querySelector('.results-section');
-  data.forEach((item, index) => {
-    let image = item.restaurant.featured_image ? item.restaurant.featured_image : `http://picsum.photos/200?image=${index}`
+///EL --- Restaurant images------
+//EL---for each restaurant, get the featured image and display in results section------
+//EL--code to remove -not needed-----------
+// const zomatoResponse = (data) => {
+//   const results = document.querySelector('.results-section');
+//   //EL//for each restaurant, get featured image, if no featured image, use random from picsum
+//   //add photos to results section
+//   data.forEach((item, index) => {
+//     let image = item.restaurant.featured_image ? item.restaurant.featured_image : `http://picsum.photos/200?image=${index}`
+//     results.insertAdjacentHTML('afterbegin', `
+//       <img src="${image}" alt="${item.restaurant.name}" width="200" />
+//     `)
+//   })
+// };
+//EL end code to remove -------------------
 
-    results.insertAdjacentHTML('afterbegin', `
-      <img src="${image}" alt="${item.restaurant.name}" width="200" />
-    `)
-  })
-};
+//EL--get array of all restaurants for a city
+//show one at a time, start with first, and increment on next button click
+const foundRestaurants = (data) => {
+  let foundRestaurantsArray = data;
+  let i = 0;
+  
+  //show first restaurant initially
+  let rImage = foundRestaurantsArray[0].restaurant.featured_image;
+  //TODO: or show default image
+  let rName = foundRestaurantsArray[0].restaurant.name;
+  let rAddress = foundRestaurantsArray[0].restaurant.location.address;
+
+  $('.results-section').append(`
+    <section class="name-address">
+      <h2 class="restaurant-name">${rName}</h2>
+      <h3 class="restaurant-address">${rAddress}</h3>
+    </section>
+
+    <section class="restaurant-carousel">
+      <button class="previous-button">Previous</button>
+      <img src="${rImage}" alt="Photo of food at ${rName}."/>
+      <button class="next-button">Next</button>
+    </section>
+    `);
+
+  //when user selects next button, show next restaurant
+  $('.next-button').on('click',() => {
+      if (i < foundRestaurantsArray.length - 1) {
+        i++;
+      } else {
+        i=0;
+      };
+
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextName = foundRestaurantsArray[i].restaurant.name;
+      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+
+      $('.restaurant-name').text(nextName);
+      $('.restaurant-address').text(nextAddress);
+      $('.restaurant-carousel img').attr('src', nextImage);
+  });
+
+    $('.previous-button').on('click',() => {
+      if (i > 0 && i < foundRestaurantsArray.length - 1) {
+        i--
+      };
+
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextName = foundRestaurantsArray[i].restaurant.name;
+      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+
+      $('.restaurant-name').text(nextName);
+      $('.restaurant-address').text(nextAddress);
+      $('.restaurant-carousel img').attr('src', nextImage);
+  });
+
+};  
+//EL---end of code changes for restaurant carousel//////
 
 
 $('#cuisine-submit').on('click', findCityId);
