@@ -54,6 +54,7 @@ const commentResults = document.getElementById('commentContainer')
 const renderComments = (comments) => {
 
   let commentContainer = document.getElementById("commentContainer")
+  console.log(comments)
 
   //clears each time so no duplicate data
   commentResults.innerHTML = '';
