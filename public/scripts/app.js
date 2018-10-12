@@ -12,9 +12,9 @@ const commentResults = document.getElementById('commentContainer')
 
 
 ///////////SMOOTH SCROLL/////////////////
-  $("a").on('click', function(event) {
+  $('a').on('click', function(event) {
     console.log('Hash = ' + this.hash)
-    if (this.hash !== "") {
+    if (this.hash !== '') {
       event.preventDefault();
       let hash = this.hash;
       
@@ -125,8 +125,13 @@ function commentCarousel() {
 //matches searched city name to zomato City ID
 function findCityId (event) {
   event.preventDefault();
+
   //Remove results section
   $('.results-section').empty();
+
+  //scroll to results
+  document.querySelector('.results-section').scrollIntoView({behavior: 'smooth'});
+
   const query = encodeURI(document.getElementById('cityName').value);
   let cityId = null;  
   fetch(`${zomato}/cities?q=${query}`, {
@@ -153,6 +158,10 @@ function getCityRestaurants(cityId) {
       foundRestaurants(restaurants);
     });
 };
+
+
+/////Search scroll/////
+//when user select submit, scroll to results section
 
 
 
