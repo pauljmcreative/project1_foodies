@@ -119,7 +119,7 @@ function commentCarousel() {
 }
 
 
-//EL--Search////////
+//Search////////
 
 // find restaurants that match city and country - use zomato api to find rest in city/country
 //triggerd by search submit
@@ -221,25 +221,15 @@ const foundRestaurants = (data) => {
       let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
       let nextName = foundRestaurantsArray[i].restaurant.name;
       let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
-      
+
       $('.restaurant-name').text(nextName);
       $('.restaurant-address').text(nextAddress);
       $('.restaurant-carousel img').attr('src', nextImage);
   });
 
 };  
+//EL---end of code changes for restaurant carousel//////
 
-//show featured image //or show default image
-//show restaurant name
-//show restaurant address
-//from restaurants array, show first
-//when user selects next, show next
-
-
-//const imageUrl = data.restaurants[0].restaurant.featured_image;
-//EL---end all rest feat images------
-
-//EL--event handlers for comments and search////////
 
 $('#cuisine-submit').on('click', findCityId);
 $('#comment-submit').on('click', handleCommentSubmit);
