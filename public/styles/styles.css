@@ -6,20 +6,16 @@ body {
   text-align: center;
 }
 
+/*generic hide class*/
+.hide {
+  display: none;
+}
+
+/*NAV SECTION*/
 nav {
   display: flex;
   flex-direction: row;
   background-color: #f2f2f2;
-}
-
-h1 {
-  font-size: 40px;
-  color: #6FB7FF;
-}
-
-li {
-  list-style-type: none;
-  color: white;
 }
 
 a {
@@ -27,6 +23,11 @@ a {
   text-decoration: none;
   list-style-type: none;
   padding: 0 20px;
+}
+
+li {
+  list-style-type: none;
+  color: white;
 }
 
 .nav-buttons {
@@ -40,7 +41,109 @@ a {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+/*-----------------------*/
 
+/*HEADER*/
+h1 {
+  font-size: 40px;
+  color: #6FB7FF;
+}
+
+#pics {
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
+
+/*USER PROFILE*/
+.user-profile-info {
+  height: 300px;
+  width: 200px;
+  background-color: white;
+  color: black;
+}
+
+/*MAIN*/
+/*Search*/
+
+.search-section {
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
+
+.cuisine-select {
+  height: 200px;
+  width: 200px;
+  border: 1px solid yellow;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 0 auto;
+  display: none;
+}
+
+/*About*/
+.about-us-section {
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
+
+/*Comments*/
+.comments-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
+
+#comment container {
+  margin-right: 60px;
+}
+
+.comments-section form input {
+  height: 30px;
+  width: 400px;
+}
+
+.comments-section form textarea {
+  height: 200px;
+  width: 100%;
+}
+
+.comments-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#comment-submit {
+  height 30px;
+  width: 25%;
+}
+
+.submit-embedded {
+  text-align: right;
+}
+
+.comment-results {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.show {
+  display: block;
+  color: white;
+  transition: all 0.5s ease;
 }
 
 

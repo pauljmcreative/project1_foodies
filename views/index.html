@@ -7,30 +7,86 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+  <header id="home">
+    <nav>
+      <ul class="nav-buttons">
+        <li><a href="#home">home</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#comments">message</a></li>
+        <section class="user-buttons">
+          <button>LOG IN</button>
+          <button>SIGN UP</button>
+        </section>
+        <div id=profile-greeting><p>Greeting</p></div>
+      </ul>
+    </nav>
 
-  <nav>
-    <ul class="nav-buttons">
-      <li><a href="#">home</a></li>
-      <li><a href="#">about</a></li>
-      <li><a href="#">message</a></li>
-      <div class="user-buttons">
-        <button>LOG IN</button>
-        <button>SIGN UP</button>
-      </div>
-    </ul>
-    
-  </nav>
+    <section class="create-user">
+      <form method="POST" action="http://localhost:3000/api/users">
+        <input type="text" placeholder="user name" name="user" value="">
+        <input type="text" placeholder="password" name="password" value="">
+        <input type="submit" id="submit-user" name="SUBMIT">
+      </form>
+    </section>
 
-  <header>
-    <h1>FOODIES UNITE!</h1>
-    <h2>For travel enthusiasts who love to eat...</h2>
   </header>
 
-  <main></main>
+  <main>
+    <section class="search-section">
+      <h1>FOODIES UNITE!</h1>
+      <h2>For travel enthusiasts who love to eat...</h2>
+      <form method="GET">
+        <input id="cityName" type="text" name="city" placeholder="City..." value=""/>
+        <input type="text" name="country" placeholder="Country..." value=""/>
+        <input class="hide" type="text" name="cuisine" value="select cuisine"/>
+
+        <fieldset class="cuisine-select">
+          <div>
+            <input type="checkbox" id="mexican" name="cuisine-type">
+            <label for="mexican">Mexican</label>
+          </div>
+          <div>
+            <input type="checkbox" id="italian" name="cuisine-type">
+            <label for="italian">Italian</label>
+          </div>
+          <div>
+            <input type="checkbox" id="vegetarian" name="cuisine-type">
+            <label for="vegetarian">Vegetarian</label>
+          </div>
+        </fieldset>
+
+        <input type="submit" id="cuisine-submit" name="submit"/>
+      </form>
+
+
+    </section>
+
+    <section class="results-section">
+    </section>
+
+    <section class="about-us-section" id="about">
+    </section>
+
+    <section class="comments-section" id="comments">
+      <h2>Tell us what you think...</h2>
+      <div id="commentContainer"></div>
+      
+      <form class="comments-form" method="POST" action="http://localhost:3000/api/comments">
+        <input type="text" name="name" placeholder="enter your name..." value=""/>
+        <textarea name="message" id="message" placeholder="Drop us a line..."></textarea>
+        <div class="submit-embedded">
+          <input type="submit" id="comment-submit" name="SUBMIT"/>
+        </div>
+      </form>
+    </section>
+
+    <div id="pics"></div>
+  </main>
+
 
   <footer></footer>
 
-
+<script type="text/javascript" src="scripts/jquery.js"></script>
 <script src="scripts/app.js"></script>
 </body>
 </html>
