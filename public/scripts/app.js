@@ -204,13 +204,16 @@ const commentResults = document.getElementById('comment-container')
   function commentCarousel() {
     console.log('Carouselling...')
     let commentIndex = 0;
-    setInterval(function () {
-      const commentResultsArray = $('#comment-container .comment-results');
+    setInterval(function() {
+      const commentResultsArray = $('#comment-container').children();
+      console.log(commentResultsArray);
+      console.log(commentResultsArray.length);
       commentIndex += 1;
-      if (commentIndex > commentResultsArray.length -1) {commentIndex = 0}
-      $('.comment-results').eq(commentIndex).siblings().attr('class', 'comment-results');
-      $('.comment-results').eq(commentIndex).attr('class', 'show');  
-    },10000);
+      if (commentIndex > commentResultsArray.length-1) {commentIndex = 0}
+      commentResultsArray.eq(commentIndex).siblings().attr('class', 'comment-results');
+      commentResultsArray.eq(commentIndex).attr('class', 'show');  
+
+    },3000);
   };
 
   //////Edit and Delete Comments//////
