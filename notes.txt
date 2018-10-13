@@ -1,5 +1,34 @@
 notes
+used in app.js for comments
 
-used in comments
+#comment-container --> edit/delete comments trigger
+#comment-submit --> submit new comment trigger
+#message -> gets value of new comment
+
+.comments-form children --> input and textarea for comment form
+
+.comment-results -->where new comment added
+
+
+not used in app.js
+.comment-box
+.comment-shell
+.comments-section
+
+
+-----removed from html was commentd out-----
+
+    <!-- <div class="comment-flexbox">
+      <section class="comments-section" id="comments">
+        <h3>Tell us what you think...</h3>
+        <div id="comment-container"></div>
+        
+        <form class="comments-form" method="POST" action="http://localhost:3000/api/comments">
+          <input type="text" name="name" placeholder="enter your name..." value=""/>
+          <textarea name="message" id="message" placeholder="Drop us a line..."></textarea>
+          <input type="submit" id="comment-submit" name="SUBMIT"/>
+        </form>
+      </section>
+    </div> -->
 
 

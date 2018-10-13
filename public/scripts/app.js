@@ -8,7 +8,7 @@ const users = 'users/';
 const comments = 'comments/';
 const zomato = 'https://developers.zomato.com/api/v2.1';
 const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
-const commentResults = document.getElementById('commentContainer')
+const commentResults = document.getElementById('comment-container')
 
 
   /////////SMOOTH SCROLL/////////////////
@@ -179,7 +179,7 @@ const commentResults = document.getElementById('commentContainer')
 
   //build comments content on UI from db
   const renderComments = (comments) => {
-    let commentContainer = document.getElementById("commentContainer");
+    let commentContainer = document.getElementById('comment-container');
 
     //clears each time so no duplicate data
     commentResults.innerHTML = '';
@@ -204,15 +204,14 @@ const commentResults = document.getElementById('commentContainer')
   function commentCarousel() {
     console.log('Carouselling...')
     let commentIndex = 0;
-    setInterval(function(){
-      const commentResultsArray = $('#commentContainer .comment-results');
+    setInterval(function () {
+      const commentResultsArray = $('#comment-container .comment-results');
       commentIndex += 1;
       if (commentIndex > commentResultsArray.length -1) {commentIndex = 0}
       $('.comment-results').eq(commentIndex).siblings().attr('class', 'comment-results');
-      $('.comment-results').eq(commentIndex).attr('class', 'show');
-      
+      $('.comment-results').eq(commentIndex).attr('class', 'show');  
     },25000);
-  }
+  };
 
   //////Edit and Delete Comments//////
   const handleEditDelete = (event) => {
@@ -268,7 +267,7 @@ const commentResults = document.getElementById('commentContainer')
 
   $('#cuisine-submit').on('click', findCityId);
   $('#comment-submit').on('click', handleCommentSubmit);
-  $('#commentContainer').on('click', handleEditDelete);
+  $('#comment-container').on('click', handleEditDelete);
 
 
 });
