@@ -35,10 +35,14 @@ h2 {
 
 /*---NAV---*/
 
+nav img {
+  height: 50px;
+  margin-right: 15px;
+  width: 50px;
+}
+
 .fa-bars {
-  color: red;
-  font-size: 2em;
-  margin: 20px;
+  display: none;
 }
 
 /*nav {
@@ -63,13 +67,14 @@ h2 {
 a {
   color: #3a3a3a;
   list-style-type: none;
-  padding: 0 20px;
+  padding: 25px 10px;
   text-decoration: none;
 }
 
 li {
   color: white;
   list-style-type: none;
+  padding: 25px 0;
 }
 
 .nav-buttons {
@@ -79,7 +84,7 @@ li {
   font-size: 25px;
 }
 
-li:first-of-type {
+.highlight-nav {
   background-color: grey;
 }
 
@@ -239,10 +244,12 @@ footer {
 ----------mobile styles---------
 
 /*small screen hamburger nav*/
-/*@media only screen and (max-width: 500px) {*/
+@media only screen and (max-width: 500px) {
 
   .fa-bars {
-    display: none;
+    color: red;
+    font-size: 2em;
+    margin: 20px;
   }
 
   .large-screen-nav {
@@ -255,7 +262,6 @@ footer {
   }
 
   .small-screen-nav {
-    background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -285,13 +291,19 @@ footer {
     font-size: .6em;
     margin: 5px;
     padding: 15px;
+  }
 
+  li {
+    margin-bottom: 5px;
+  }
+
+  li:first-of-type {
+    background-color: #f2f2f2;
   }
 
 
 
-
-/*}*/
+}
 
 
 
