@@ -1,12 +1,12 @@
 /*---Global styles---*/
 
 body {
+  font-family: 'PT Sans', sans-serif;
   background-image: url('../images/table.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   height: 100vh; 
-  /*background-color: #3a3a3a*/;
   color: #f2f2f2;
   max-width: 1400px;
   text-align: center;
@@ -88,8 +88,7 @@ li:first-of-type {
   margin: 0 auto;
 }
 
-.search-section form {
-  font-size: 40px;
+.search-form {
   color: #3a3a3a;
   height: 65%;
   width: 40%;
@@ -99,17 +98,49 @@ li:first-of-type {
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, .8);
+  border: none;
+  border-radius: 12px;
 }
 
-.search-section form input {
-  border: 2px solid red;
+.search-form label {
+  color: #ff0600;
+  font-size: 30px;
+  font-family: 'Rammetto One', cursive;
+/*  -webkit-animation: color-change 10s infinite;
+    -moz-animation: color-change 10s infinite;
+    -o-animation: color-change 10s infinite;
+    -ms-animation: color-change 10s infinite;
+    animation: color-change 10s infinite;*/
+}
+
+.search-form input:nth-child(2) {
+  font-size: 20px;
+  height: 50px;
+  width: 60%;
+  border: none;
+  border-radius: 12px;
+  margin: 70px 0 20px 0;
+}
+
+.search-form input:nth-child(3) {
+  font-size: 18px;
+  color: white;
+  height: 40px;
+  width: 90px;
+  background-color: #ff0600;
+  border: none;
+  border-radius: 12px;
+  transition: all .2s ease-in-out;
 }
 
 /*---Search results---*/
 
 .results-section {
+  height: 100vh;
   width: 100%;
   color: white;
+  background-color: #3a3a3a;
+
 }
 
 .name-address h2 {
@@ -132,7 +163,7 @@ li:first-of-type {
 
 .restaurant-carousel img {
   width: 80%;
-  height: 100%;
+  height: 90%;
 }
 
 /*---About---*/
@@ -140,10 +171,15 @@ li:first-of-type {
   color: #3a3a3a;
   background-color: #F2F2F2;
   height: 100vh;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 
 /*---Comments---*/
+.about-us-section h3, .comment-shell h3 {
+  font-family: 'Rammetto One', cursive;
+  font-size: 30px;
+  color: #6FB7FF;
+}
 
 .comment-box {
   display: flex;
@@ -152,9 +188,11 @@ li:first-of-type {
 
 .comment-shell {
   color: #3a3a3a;
-  background-color: rgba(229,243,253, .9);
+  background-color: rgba(255, 255, 255, .8);
   height: 550px;
   width: 80%;
+  border: none;
+  border-radius: 12px;
 }
 
 .comment-shell h3 {
@@ -172,22 +210,33 @@ li:first-of-type {
   width: 48%;
 }
 
-.comments-section input, .comments-section textarea {
+.comments-form input, .comments-form textarea {
   box-sizing: border-box;
-  border: 1px solid white;
   padding: 5px;
   font-size: 1em;
+  border: none;
+  border-radius: 8px;
 }
 
-.comments-section form input {
+.comments-form input {
   height: 30px;
   width: 100%;
+  
 }
 
-.comments-section form textarea {
+.comments-form textarea {
   height: 250px;
   width: 100%;
   margin: 10px auto;
+}
+
+.comments-form input[type="submit"] {
+  font-size: 18px;
+  color: white;
+  height: 40px;
+  width: 90px;
+  background-color: #ff0600;
+  transition: all .2s ease-in-out;
 }
 
 .comment-submit-div {
@@ -215,8 +264,67 @@ li:first-of-type {
 
 /*---FOOTER---*/
 footer {
-  padding: 20px;
+  width: 100%;
+  background-color: #595959;
+  padding: 40px;
   font-weight: bold;
+  margin-top: 120px;
 }
+
+/*KEY FRAMES*/
+/*@-webkit-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@-moz-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@-ms-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@-o-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}*/
+
+
+
+
+/*HOVER EFFECTS*/
+
+.search-form input:nth-child(3):hover {
+  font-size: 22px;
+  color: white;
+  height: 50px;
+  width: 110px;
+  background-color: #ff0600;
+  /*transform: scale(1.1);*/
+}
+
+.comments-form input[type="submit"]:hover {
+  font-size: 20px;
+  color: white;
+  height: 50px;
+  width: 110px;
+  background-color: #ff0600;
+}
+
+
+
+
+
+
+
 
 
