@@ -67,6 +67,8 @@ const renderComments = (comments) => {
       <div class="comment-results">
           <p><strong>${comment.user.username}</strong></p>
           <p><strong>${comment.message}</strong></p>
+          <small id="${comment._id}">EDIT</small>
+          <small id="${comment._id}">DELETE</small>
       </div>
     `)
   });
@@ -104,74 +106,59 @@ const handleCommentSubmit = (event) => {
     })
     .catch(err => console.log(err));
 }
-
+////////////////////////////////////////////////
 ///////////EDIT DELETE//////////////////////////
-// commentContainer.insertAdjacentHTML('afterbegin', `
-//       <div class="comment-results">
-//           <p><strong>${comment.user.username}</strong></p>
-//           <p><strong>${comment.message}</strong></p>
-//           <small id="${comment._id}">EDIT</small>
-//           <small id="${comment._id}">DELETE</small>
-//       </div>
-//     `)
-//   });
-
-//   commentCarousel();
-
-
-
-
-
-
-// const handleEditDelete = (event) => {
-//     if (event.target.innerText === 'DELETE') {
-//       // console.log('Delete Clicked');
-//       // console.log(event.target._id);
-//       fetch(baseUrl + event.target.id, {
-//         method: 'DELETE',
-//       })
-//         .then(() => getComments())
-//         .catch(err => console.log(err));
-//     } else if(event.target.innerText === 'EDIT'){
-//       // console.log("edit clicked!");
-//       const parent = event.target.parentNode;
-//       const commentName = parent.children[0].innerText;
-//       const commentMessage = parent.children[1].innerText;
-//       const commentId = parent.children[2].id;
-//       //////////////// EDIT PROJECT INPUTS ///////////////////////
-//       parent.insertAdjacentHTML('beforeend', `
-//                 <span id="editComment">
-//                     <input id="editCommentName" name="name" type="text" value="${commentName}">
-//                     <input id="editCommentDate" date="date" type="date" value="${commentMessage}">
-//                     <button id="editCancel">CANCEL</button>
-//                     <button id="editSubmit" data-id="${commentId}">SUBMIT</button>
-//                 </span>
-//             `);
-//     } else if(event.target.id === 'editCancel') {
-//       const commentForm = document.getElementById('editComment');
-//       commentForm.remove();
-
-
-//     } else if(event.target.id === 'editSubmit') {
-//       let commentId = event.target.getAttribute('data-id');
-//       const newCommentName = document.getElementById('editCommentName').value;
-//       const newCommentMessage = document.getElementById('editCommentMessage').value;
-//             const commentData = {name: newCommentName, message: newCommentMessage};
-//             if (newCommentName.length !== 0 && newCommentMessage.length !== 0) {
-//         fetch(baseUrl + commentId, {
-//           method: 'PUT',
-//           headers: {
-//             "Content-Type": "application/json; charset=utf-8"
-//           },
-//           body: JSON.stringify(data)
-//         })
-//                     .then(() => getComments());
-//       }
-//     }
-//   }
 ////////////////////////////////////////////////
 
+const handleEditDelete = (event) => {
+    if (event.target.innerText === 'DELETE') {
+      // console.log('Delete Clicked');
+      // console.log(event.target._id);
+      fetch(baseUrl + event.target.id, {
+        method: 'DELETE',
+      })
+        .then(() => getComments())
+        .catch(err => console.log(err));
+    } else if(event.target.innerText === 'EDIT'){
+      // console.log("edit clicked!");
+      const parent = event.target.parentNode;
+      const commentName = parent.children[0].innerText;
+      const commentMessage = parent.children[1].innerText;
+      const commentId = parent.children[2].id;
+//       //////////////// EDIT PROJECT INPUTS ///////////////////////
+      parent.insertAdjacentHTML('beforeend', `
+                <span id="editComment">
+                    <input id="editCommentName" name="name" type="text" value="${commentName}">
+                    <input id="editCommentDate" date="date" type="date" value="${commentMessage}">
+                    <button id="editCancel">CANCEL</button>
+                    <button id="editSubmit" data-id="${commentId}">SUBMIT</button>
+                </span>
+            `);
+    } else if(event.target.id === 'editCancel') {
+      const commentForm = document.getElementById('editComment');
+      commentForm.remove();
 
+
+    } else if(event.target.id === 'editSubmit') {
+      let commentId = event.target.getAttribute('data-id');
+      const newCommentName = document.getElementById('editCommentName').value;
+      const newCommentMessage = document.getElementById('editCommentMessage').value;
+            const commentData = {username: newCommentName, message: newCommentMessage};
+            if (newCommentName.length !== 0 && newCommentMessage.length !== 0) {
+        fetch(baseUrl + commentId, {
+          method: 'PUT',
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          },
+          body: JSON.stringify(data)
+        })
+                    .then(() => getComments());
+      }
+    }
+  }
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 
 
 
@@ -310,6 +297,7 @@ const foundRestaurants = (data) => {
 
 $('#cuisine-submit').on('click', findCityId);
 $('#comment-submit').on('click', handleCommentSubmit);
+$('#commentContainer').on('click', handleEditDelete);
 
 
 //end of document ready
