@@ -1,13 +1,13 @@
 /*---Global styles---*/
 
 body {
-  /*background-color: #3a3a3a*/;
   background-attachment: fixed;
+  font-family: 'PT Sans', sans-serif;
   background-image: url('../images/table.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  color: #f2f2f2;
   height: 100vh; 
+  color: #f2f2f2;
   margin: 0 auto;
   max-width: 1400px;
   text-align: center;
@@ -44,16 +44,6 @@ nav img {
 .fa-bars {
   display: none;
 }
-
-/*nav {
-  display: flex;
-  flex-direction: row;
-  background-color: #f2f2f2;
-  position: fixed;
-  top: 0;
-  height: 80px;
-  width: 100%;
-}*/
 
 .large-screen-nav {
   background-color: #f2f2f2;
@@ -115,9 +105,12 @@ li {
   width: 100%;
 }
 
+
 .search-section form {
   align-items: center;
   background-color: rgba(255, 255, 255, .8);
+=======
+.search-form {
   color: #3a3a3a;
   display: flex;
   flex-direction: column;
@@ -126,17 +119,49 @@ li {
   justify-content: center;
   max-width: 50%;
   width: 40%;
+  background-color: rgba(255, 255, 255, .8);
+  border: none;
+  border-radius: 12px;
 }
 
-.search-section form input {
-  border: 2px solid red;
+.search-form label {
+  color: #ff0600;
+  font-size: 30px;
+  font-family: 'Rammetto One', cursive;
+/*  -webkit-animation: color-change 10s infinite;
+    -moz-animation: color-change 10s infinite;
+    -o-animation: color-change 10s infinite;
+    -ms-animation: color-change 10s infinite;
+    animation: color-change 10s infinite;*/
+}
+
+.search-form input:nth-child(2) {
+  font-size: 20px;
+  height: 50px;
+  width: 60%;
+  border: none;
+  border-radius: 12px;
+  margin: 70px 0 20px 0;
+}
+
+.search-form input:nth-child(3) {
+  font-size: 18px;
+  color: white;
+  height: 40px;
+  width: 90px;
+  background-color: #ff0600;
+  border: none;
+  border-radius: 12px;
+  transition: all .2s ease-in-out;
 }
 
 /*---Search results---*/
 
 .results-section {
-  color: white;
+  height: 100vh;
   width: 100%;
+  color: white;
+  background-color: #3a3a3a;
 }
 
 .name-address h2 {
@@ -158,8 +183,8 @@ li {
 }
 
 .restaurant-carousel img {
-  height: 100%;
   width: 80%;
+  height: 90%;
 }
 
 /*---About---*/
@@ -167,10 +192,15 @@ li {
   background-color: #F2F2F2;
   color: #3a3a3a;
   height: 100vh;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 
 /*---Comments---*/
+.about-us-section h3, .comment-shell h3 {
+  font-family: 'Rammetto One', cursive;
+  font-size: 30px;
+  color: #6FB7FF;
+}
 
 .comment-box {
   display: flex;
@@ -178,10 +208,12 @@ li {
 }
 
 .comment-shell {
-  background-color: rgba(229,243,253, .9);
   color: #3a3a3a;
+  background-color: rgba(255, 255, 255, .8);
   height: 550px;
   width: 80%;
+  border: none;
+  border-radius: 12px;
 }
 
 .comment-shell h3 {
@@ -198,23 +230,34 @@ li {
   margin: 20px;
   width: 48%;
 }
-
-.comments-section input, .comments-section textarea {
-  border: 1px solid white;
+  
+.comments-form input, .comments-form textarea {
   box-sizing: border-box;
-  font-size: 1em;
   padding: 5px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
 }
 
-.comments-section form input {
+.comments-form input {
   height: 30px;
   width: 100%;
+  
 }
 
-.comments-section form textarea {
+.comments-form textarea {
   height: 250px;
   margin: 10px auto;
   width: 100%;
+}
+
+.comments-form input[type="submit"] {
+  font-size: 18px;
+  color: white;
+  height: 40px;
+  width: 90px;
+  background-color: #ff0600;
+  transition: all .2s ease-in-out;
 }
 
 .comment-submit-div {
@@ -242,9 +285,67 @@ li {
 
 /*---FOOTER---*/
 footer {
+  width: 100%;
+  background-color: #595959;
+  padding: 40px;
   font-weight: bold;
-  padding: 20px;
+  margin-top: 120px;
 }
+
+/*KEY FRAMES*/
+/*@-webkit-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@-moz-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@-ms-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@-o-keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}
+@keyframes color-change {
+    0% { color: #6FB7FF; }
+    50% { color: #3a3a3a; }
+    100% { color: #6FB7FF; }
+}*/
+
+
+
+
+/*HOVER EFFECTS*/
+
+.search-form input:nth-child(3):hover {
+  font-size: 22px;
+  color: white;
+  height: 50px;
+  width: 110px;
+  background-color: #ff0600;
+}
+
+.comments-form input[type="submit"]:hover {
+  font-size: 20px;
+  color: white;
+  height: 50px;
+  width: 110px;
+  background-color: #ff0600;
+}
+
+
+
+
+
+
+
 
 
 ----------mobile styles---------
