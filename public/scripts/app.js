@@ -17,10 +17,10 @@ const commentResults = document.getElementById('commentContainer')
     if (this.hash !== '') {
       event.preventDefault();
       let hash = this.hash;
-      
+
       $('html, body').animate({
         scrollTop: $(hash).offset().top
-      }, 
+    }, 
 
       800, function(){
         window.location.hash = hash;
@@ -30,10 +30,10 @@ const commentResults = document.getElementById('commentContainer')
 
  $(function() {
     $('.nav-buttons a').bind('click',function(event){
-      event.preventDefault();
-      $('.nav-buttons a').removeClass('active');
-      $(this).addClass('active');
-    });
+    event.preventDefault();
+    $('.nav-buttons a').removeClass('active');
+    $(this).addClass('active');
+  });
   });
 
 
@@ -110,41 +110,50 @@ const handleCommentSubmit = (event) => {
 ///////////EDIT DELETE//////////////////////////
 ////////////////////////////////////////////////
 
+//triggered on clicks within #commentContainer
+
 const handleEditDelete = (event) => {
-    if (event.target.innerText === 'DELETE') {
-      // console.log('Delete Clicked');
-      // console.log(event.target._id);
-      fetch(baseUrl + event.target.id, {
-        method: 'DELETE',
+  //select delete button to delete comment
+  if (event.target.innerText === 'DELETE') {
+    // console.log('Delete Clicked');
+    //console.log("event target url is: " + baseUrl + comments + event.target.id,);
+    fetch(baseUrl + comments + event.target.id, {
+      method: 'DELETE',
       })
-        .then(() => getComments())
-        .catch(err => console.log(err));
-    } else if(event.target.innerText === 'EDIT'){
-      // console.log("edit clicked!");
-      const parent = event.target.parentNode;
-      const commentName = parent.children[0].innerText;
-      const commentMessage = parent.children[1].innerText;
-      const commentId = parent.children[2].id;
-//       //////////////// EDIT PROJECT INPUTS ///////////////////////
-      parent.insertAdjacentHTML('beforeend', `
-                <span id="editComment">
-                    <input id="editCommentName" name="name" type="text" value="${commentName}">
-                    <input id="editCommentMessage" name="message" type="text" value="${commentMessage}">
-                    <button id="editCancel">CANCEL</button>
-                    <button id="editSubmit" data-id="${commentId}">SUBMIT</button>
-                </span>
-            `);
+      .then(() => getComments())
+      .catch(err => console.log(err));
+  
+  //select edit to edit comment
+  } else if(event.target.innerText === 'EDIT') {
+    // console.log("edit clicked!");
+    const parent = event.target.parentNode;
+    const commentName = parent.children[0].innerText;
+    const commentMessage = parent.children[1].innerText;
+    const commentId = parent.children[2].id;
+
+    //create edit comment form
+    parent.insertAdjacentHTML('beforeend', `
+      <span id="editComment">
+        <input id="editCommentName" name="name" type="text" value="${commentName}">
+        <input id="editCommentMessage" name="message" type="text" value="${commentMessage}">
+        <button id="editCancel">CANCEL</button>
+        <button id="editSubmit" data-id="${commentId}">SUBMIT</button>
+      </span>
+    `);
+
+    //cancel->remove edit comment form
     } else if(event.target.id === 'editCancel') {
       const commentForm = document.getElementById('editComment');
       commentForm.remove();
 
-
+    //save changes -> submit 
     } else if(event.target.id === 'editSubmit') {
       let commentId = event.target.getAttribute('data-id');
       const newCommentName = document.getElementById('editCommentName').value;
       const newCommentMessage = document.getElementById('editCommentMessage').value;
-            const commentData = {username: newCommentName, message: newCommentMessage};
-            if (newCommentName.length !== 0 && newCommentMessage.length !== 0) {
+      const commentData = {username: newCommentName, message: newCommentMessage};
+      
+      if (newCommentName.length !== 0 && newCommentMessage.length !== 0) {
         fetch(baseUrl + commentId, {
           method: 'PUT',
           headers: {
@@ -152,28 +161,17 @@ const handleEditDelete = (event) => {
           },
           body: JSON.stringify(data)
         })
-                    .then(() => getComments());
+          .then(() => getComments());
       }
     }
   }
+
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//comment carousel
 function commentCarousel() {
   console.log('Carouselling...')
   let commentIndex = 0;
@@ -227,11 +225,6 @@ function getCityRestaurants(cityId) {
       foundRestaurants(restaurants);
     });
 };
-
-
-/////Search scroll/////
-//when user select submit, scroll to results section
-
 
 
 ///////////////////////////////

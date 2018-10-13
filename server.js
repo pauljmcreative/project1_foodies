@@ -16,26 +16,21 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-
-// serve static files in public
+//Serve static files in public
 app.use(express.static(__dirname + '/public'));
 
-
-//Set up file routes
+//Set up file routes - html endpoints
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
-//Create routes
+//Create routes - json endpoints
 app.get('/api/users', (req, res) => {
   db.User.find((err, allUsers) => {
     if(err) throw err;
     res.json(allUsers);
   });
 });
-
 
 app.post('/api/users', (req, res) => {
   console.log(req.body);
@@ -46,7 +41,6 @@ app.post('/api/users', (req, res) => {
   });
 });
 
-
 app.put('/api/users/:id', (req, res) => {
   console.log('Received: ' + req.body)
     const userId = req.params.id;
@@ -56,7 +50,6 @@ app.put('/api/users/:id', (req, res) => {
     });
 });
 
-
 app.delete('/api/users/:id', (req, res) => {
   const userId = req.params.id;
   db.User.findByIdAndDelete(userId, (err, deletedUser) => {
@@ -65,14 +58,12 @@ app.delete('/api/users/:id', (req, res) => {
   });
 });
 
-
 app.get('/api/comments', (req, res) => {
   db.Comment.find((err, allComments) => {
     if(err) throw err;
     res.json(allComments);
   });
 });
-
 
 app.post('/api/comments', (req, res) => {
   // console.log(req.body);
@@ -96,6 +87,15 @@ app.put('/api/comments/:id', (req, res) => {
   });
 });
 
+app.delete('/api/comments/:id', (req, res) => {
+  const commentId = req.params.id;
+  db.Comment.findByIdAndDelete(commentId, (err, deletedComment) => {
+    if(err) throw err;
+    res.json(deletedComment);
+  });
+});
+
+//delete seed data
 app.get('/api/nuke', (req, res) => {
   db.User.deleteMany(err => {
     if (err) throw err;
@@ -106,9 +106,8 @@ app.get('/api/nuke', (req, res) => {
   });
 });
 
-
+//add seed data
 app.get('/api/seed', (req, res) => {
-
   const userProfiles = [
   {
     username: 'k-nuggets',
