@@ -108,7 +108,31 @@ li:first-of-type {
 /*---Search results---*/
 
 .results-section {
-  width: 30%;
+  width: 100%;
+  color: white;
+}
+
+.name-address h2 {
+  margin: 0;
+}
+
+.restaurant-carousel {
+  display: flex;
+}
+
+.restaurant-carousel button {
+  border: none;
+  font-size: 2em;
+  color: white;
+  padding: 1px;
+  margin: 0;
+  background-color: grey;
+  width: 10%
+}
+
+.restaurant-carousel img {
+  width: 80%;
+  height: 100%;
 }
 
 /*---About---*/
@@ -133,7 +157,7 @@ li:first-of-type {
   width: 80%;
 }
 
-h3 {
+.comment-shell h3 {
   margin-top: 40px;
 }
 

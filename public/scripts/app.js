@@ -14,8 +14,8 @@ const commentResults = document.getElementById('comment-container')
   /////////SMOOTH SCROLL/////////////////
 
   //smooth scroll for navigation -- any anchor tag 
-  $('a').on('click', function(event) {
-    console.log('Hash = ' + this.hash)
+  $('.nav-buttons a').on('click', function(event) {
+    //console.log('Hash = ' + this.hash)
     if (this.hash !== '') {
       event.preventDefault();
       let hash = this.hash;
@@ -30,7 +30,6 @@ const commentResults = document.getElementById('comment-container')
     }
   });
 
-  //smooth scroll for search submit
   $(function() {
     $('.nav-buttons a').bind('click',function(event){
       event.preventDefault();
@@ -39,8 +38,6 @@ const commentResults = document.getElementById('comment-container')
     });
   });
 
-
-  
 
   ////////////////////////////////////////
   /////SEARCH FOR RESTAURANTS BY CITY/////
@@ -95,10 +92,10 @@ const commentResults = document.getElementById('comment-container')
     let i = 0;
     
     //show first restaurant initially
-    let rImage = foundRestaurantsArray[0].restaurant.featured_image;
-    //TODO: or show default image
+    let rImage = foundRestaurantsArray[0].restaurant.featured_image || "images/plate.jpg";
     let rName = foundRestaurantsArray[0].restaurant.name;
     let rAddress = foundRestaurantsArray[0].restaurant.location.address;
+    console.log(rImage);
 
     $('.results-section').append(`
       <section class="name-address">
@@ -107,14 +104,14 @@ const commentResults = document.getElementById('comment-container')
       </section>
 
       <section class="restaurant-carousel">
-        <button class="previous-button">Previous</button>
+        <button class="previous-restaurant">Previous</button>
         <img src="${rImage}" alt="Photo of food at ${rName}."/>
-        <button class="next-button">Next</button>
+        <button class="next-restaurant">Next</button>
       </section>
       `);
 
     //when user selects next button, show next restaurant
-    $('.next-button').on('click',() => {
+    $('.next-restaurant').on('click',() => {
       if (i < foundRestaurantsArray.length - 1) {
         i++;
       } else {
@@ -129,7 +126,7 @@ const commentResults = document.getElementById('comment-container')
     });
 
     //when user selects previous button, show previous restaurant
-    $('.previous-button').on('click',() => {
+    $('.previous-restaurant').on('click',() => {
       if (i > 0 && i < foundRestaurantsArray.length - 1) {
         i--
       };
