@@ -1,3 +1,5 @@
+/*---Global styles---*/
+
 body {
   background-image: url('../images/table.jpg');
   background-repeat: no-repeat;
@@ -13,16 +15,26 @@ body {
 
 main {
   color: #3a3a3a;
-
 }
+
 /*generic hide class*/
 .hide {
   display: none;
 }
 
-/*NAV SECTION*/
+/*---HEADER---*/
+h1 {
+  font-size: 40px;
+  color: #6FB7FF;
+  margin-top: 5em;
+}
+
+h2 {
+  margin-bottom: 10em;
+}
+
+/*---NAV---*/
 nav {
-  
   display: flex;
   flex-direction: row;
   background-color: #f2f2f2;
@@ -60,36 +72,10 @@ li:first-of-type {
   justify-content: flex-end;
   align-items: center;
 }
-/*-----------------------*/
 
-/*HEADER*/
-h1 {
-  font-size: 40px;
-  color: #6FB7FF;
-  margin-top: 5em;
-}
+/*---MAIN---*/
 
-h2 {
-  margin-bottom: 10em;
-}
-
-#pics {
-  height: 400px;
-  width: 100%;
-  border: 2px solid white;
-  margin: 0 auto;
-}
-
-/*USER PROFILE*/
-.user-profile-info {
-  height: 300px;
-  width: 200px;
-  background-color: white;
-  color: black;
-}
-
-/*MAIN*/
-/*Search*/
+/*--Search--*/
 
 .search-section {
   display: flex;
@@ -119,26 +105,37 @@ h2 {
   border: 2px solid red;
 }
 
-.cuisine-select {
-  height: 200px;
-  width: 200px;
-  border: 1px solid yellow;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin: 0 auto;
-  display: none;
-}
-
-/*RESULTS SECTION*/
+/*---Search results---*/
 
 .results-section {
-  width: 30%;
+  width: 100%;
+  color: white;
 }
 
+.name-address h2 {
+  margin: 0;
+}
 
+.restaurant-carousel {
+  display: flex;
+}
 
-/*About*/
+.restaurant-carousel button {
+  border: none;
+  font-size: 2em;
+  color: white;
+  padding: 1px;
+  margin: 0;
+  background-color: grey;
+  width: 10%
+}
+
+.restaurant-carousel img {
+  width: 80%;
+  height: 100%;
+}
+
+/*---About---*/
 .about-us-section {
   color: #3a3a3a;
   background-color: #F2F2F2;
@@ -146,40 +143,41 @@ h2 {
   margin-bottom: 40px;
 }
 
-/*Comments*/
+/*---Comments---*/
 
 .comment-box {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
 }
 
 .comment-shell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   color: #3a3a3a;
   background-color: rgba(229,243,253, .9);
   height: 550px;
   width: 80%;
-  margin-right: 40px;
 }
+
+.comment-shell h3 {
+  margin-top: 40px;
+}
+
 .comments-section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
+  margin-top: 50px;
 }
 
-.comments-form {
-  max-width: 100%;
+.comments-form, #comment-container {
+  margin: 20px;
+  width: 48%;
 }
 
-/*.comments-section > div, form.comments-form {
-  flex: 0 0 30%;
-  word-wrap: break-word;
-}*/
+.comments-section input, .comments-section textarea {
+  box-sizing: border-box;
+  border: 1px solid white;
+  padding: 5px;
+  font-size: 1em;
+}
 
 .comments-section form input {
   height: 30px;
@@ -189,17 +187,15 @@ h2 {
 .comments-section form textarea {
   height: 250px;
   width: 100%;
+  margin: 10px auto;
 }
 
-/*.comments-form {
+.comment-submit-div {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}*/
+  justify-content: flex-end;
+}
 
 #comment-submit {
-  /*height: 55px;*/
   width: 25%;
 }
 
@@ -210,7 +206,6 @@ h2 {
 
 .comment-results p {
   color: black;
-  
 }
 
 .show {
@@ -218,7 +213,10 @@ h2 {
   transition: all 0.5s ease;
 }
 
-
-
+/*---FOOTER---*/
+footer {
+  padding: 20px;
+  font-weight: bold;
+}
 
 
