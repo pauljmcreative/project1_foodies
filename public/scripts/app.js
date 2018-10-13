@@ -115,8 +115,6 @@ const handleCommentSubmit = (event) => {
 const handleEditDelete = (event) => {
   //select delete button to delete comment
   if (event.target.innerText === 'DELETE') {
-    // console.log('Delete Clicked');
-    //console.log("event target url is: " + baseUrl + comments + event.target.id,);
     fetch(baseUrl + comments + event.target.id, {
       method: 'DELETE',
       })
@@ -125,7 +123,6 @@ const handleEditDelete = (event) => {
   
   //select edit to edit comment
   } else if(event.target.innerText === 'EDIT') {
-    // console.log("edit clicked!");
     const parent = event.target.parentNode;
     const commentName = parent.children[0].innerText;
     const commentMessage = parent.children[1].innerText;
@@ -151,15 +148,16 @@ const handleEditDelete = (event) => {
       let commentId = event.target.getAttribute('data-id');
       const newCommentName = document.getElementById('editCommentName').value;
       const newCommentMessage = document.getElementById('editCommentMessage').value;
-      const commentData = {username: newCommentName, message: newCommentMessage};
+      const newCommentData = {username: newCommentName, message: newCommentMessage};
+      console.log("comment data is " + newCommentData);
       
       if (newCommentName.length !== 0 && newCommentMessage.length !== 0) {
-        fetch(baseUrl + commentId, {
+        fetch(baseUrl + comments + commentId, {
           method: 'PUT',
           headers: {
             "Content-Type": "application/json; charset=utf-8"
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(newCommentData)
         })
           .then(() => getComments());
       }
@@ -182,7 +180,7 @@ function commentCarousel() {
     $('.comment-results').eq(commentIndex).siblings().attr('class', 'comment-results');
     $('.comment-results').eq(commentIndex).attr('class', 'show');
     
-  },50000);
+  },30000);
 }
 
 ////////////////////////////////////////
