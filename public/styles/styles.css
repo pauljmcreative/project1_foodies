@@ -73,21 +73,6 @@ li:first-of-type {
   align-items: center;
 }
 
-/*#pics {
-  height: 400px;
-  width: 100%;
-  border: 2px solid white;
-  margin: 0 auto;
-}*/
-
-/*USER PROFILE*/
-/*.user-profile-info {
-  height: 300px;
-  width: 200px;
-  background-color: white;
-  color: black;
-}*/
-
 /*---MAIN---*/
 
 /*--Search--*/
@@ -120,17 +105,6 @@ li:first-of-type {
   border: 2px solid red;
 }
 
-/*.cuisine-select {
-  height: 200px;
-  width: 200px;
-  border: 1px solid yellow;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin: 0 auto;
-  display: none;
-}*/
-
 /*---Search results---*/
 
 .results-section {
@@ -149,36 +123,37 @@ li:first-of-type {
 
 .comment-box {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
 }
 
 .comment-shell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   color: #3a3a3a;
   background-color: rgba(229,243,253, .9);
   height: 550px;
   width: 80%;
-  margin-right: 40px;
 }
+
+h3 {
+  margin-top: 40px;
+}
+
 .comments-section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
+  margin-top: 50px;
 }
 
-.comments-form {
-  max-width: 100%;
+.comments-form, #comment-container {
+  margin: 20px;
+  width: 48%;
 }
 
-/*.comments-section > div, form.comments-form {
-  flex: 0 0 30%;
-  word-wrap: break-word;
-}*/
+.comments-section input, .comments-section textarea {
+  box-sizing: border-box;
+  border: 1px solid white;
+  padding: 5px;
+  font-size: 1em;
+}
 
 .comments-section form input {
   height: 30px;
@@ -188,17 +163,15 @@ li:first-of-type {
 .comments-section form textarea {
   height: 250px;
   width: 100%;
+  margin: 10px auto;
 }
 
-/*.comments-form {
+.comment-submit-div {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}*/
+  justify-content: flex-end;
+}
 
 #comment-submit {
-  /*height: 55px;*/
   width: 25%;
 }
 

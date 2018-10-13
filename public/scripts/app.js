@@ -185,7 +185,7 @@ const commentResults = document.getElementById('comment-container')
     commentResults.innerHTML = '';
     document.querySelector('.comments-form').children[0] = '';
     document.querySelector('.comments-form').children[1] = '';
-    
+
     comments.forEach(comment => {
       commentContainer.insertAdjacentHTML('afterbegin', `
         <div class="comment-results">
@@ -210,7 +210,7 @@ const commentResults = document.getElementById('comment-container')
       if (commentIndex > commentResultsArray.length -1) {commentIndex = 0}
       $('.comment-results').eq(commentIndex).siblings().attr('class', 'comment-results');
       $('.comment-results').eq(commentIndex).attr('class', 'show');  
-    },25000);
+    },10000);
   };
 
   //////Edit and Delete Comments//////
@@ -230,12 +230,12 @@ const commentResults = document.getElementById('comment-container')
 
       //create edit comment form
       parent.insertAdjacentHTML('beforeend', `
-        <span id="editComment">
+        <div id="editComment">
           <input id="editCommentName" name="name" type="text" value="${commentName}">
           <input id="editCommentMessage" name="message" type="text" value="${commentMessage}">
           <button id="editCancel">CANCEL</button>
           <button id="editSubmit" data-id="${commentId}">SUBMIT</button>
-        </span>
+        </div>
       `);
 
     //cancel->remove edit comment form
