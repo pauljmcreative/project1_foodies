@@ -129,7 +129,7 @@ const handleEditDelete = (event) => {
       parent.insertAdjacentHTML('beforeend', `
                 <span id="editComment">
                     <input id="editCommentName" name="name" type="text" value="${commentName}">
-                    <input id="editCommentDate" date="date" type="date" value="${commentMessage}">
+                    <input id="editCommentMessage" name="message" type="text" value="${commentMessage}">
                     <button id="editCancel">CANCEL</button>
                     <button id="editSubmit" data-id="${commentId}">SUBMIT</button>
                 </span>
@@ -184,7 +184,7 @@ function commentCarousel() {
     $('.comment-results').eq(commentIndex).siblings().attr('class', 'comment-results');
     $('.comment-results').eq(commentIndex).attr('class', 'show');
     
-  },5000);
+  },50000);
 }
 
 ////////////////////////////////////////
