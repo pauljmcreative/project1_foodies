@@ -64,6 +64,12 @@ nav img {
   width: 100%;
 }
 
+.nav-and-login {
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 40px;
+}
+
 a {
   color: #3a3a3a;
   list-style-type: none;
