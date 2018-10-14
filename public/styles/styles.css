@@ -172,7 +172,7 @@ li a:hover {
 
 /*---Search results---*/
 
-.next-icon, .previous-icon {
+.next-icon, .previous-icon, .icon {
   display: none;
 }
 
@@ -385,11 +385,11 @@ small:hover {
 }
 
 
-/*-----SMALL SCREEN STYES-----*/
+/*-----SMALL to MED SCREEN STYES-----*/
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 760px) {
 
-  /*navigation*/
+  /*navigation small screen*/
 
   .large-screen-nav {
     background-color: rgba(255, 255, 255, 0);
@@ -468,7 +468,32 @@ small:hover {
     padding-left: 10px;
   }
 
-  /*search results*/
+   /*search small screen*/ 
+  
+  .search-section {
+    display: block;
+  }
+
+  #search-results {
+    margin-top: 120px;
+  }
+
+  .search-form label {
+    font-size: 22px;
+  }
+
+  .search-form {
+    height: 70%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .comment-shell h3 {
+    font-size: 22px;
+  }
+
+  /*search results small screen*/
+
   .restaurant-carousel {
     align-items: center;
   }
@@ -490,7 +515,11 @@ small:hover {
     position: relative;
     right: 40px;
   }
-  
+
+  .icon {
+    display: block;
+  }
+
   .next-icon, .previous-icon {
     color: rgba(255, 255, 255, 0.8);
     display: block;
@@ -499,24 +528,7 @@ small:hover {
     z-index: 1;
   }
 
- /*search and comments*/ 
-  /*PAULS ADDITIONS*/  
-
-  .search-form label {
-    font-size: 22px;
-  }
-
-  .comment-shell h3 {
-    font-size: 22px;
-  }
-
-  p {
-    font-size: 17;
-  }
-
-  .search-section {
-    display: block;
-  }
+/*comments small screen*/
 
   .comments-section {
     display: block;
@@ -533,6 +545,10 @@ small:hover {
     font-size: 18px;
   }
 
+  p {
+    font-size: 17;
+  }
+
   strong {
     font-size: 18px;
     padding: 0;
@@ -542,12 +558,6 @@ small:hover {
   .comments-form, #comment-container {
     margin: 20px;
     width: 90%;
-  }
-
-  .search-form {
-    height: 70%;
-    width: 100%;
-    max-width: 100%;
   }
 
 }
