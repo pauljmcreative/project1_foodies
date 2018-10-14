@@ -165,11 +165,11 @@ li {
 
 
 .results-section {
+
   height: 100vh;
   width: 100%;
   color: white;
-  background-color: #3a3a3a;
-
+  padding-top: 80px;
 }
 
 .name-address h2 {
@@ -178,6 +178,8 @@ li {
 
 .restaurant-carousel {
   display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .restaurant-carousel button {
@@ -191,8 +193,10 @@ li {
 }
 
 .restaurant-carousel img {
+  box-sizing: border-box;
+  overflow: hidden;
   width: 80%;
-  height: 90%;
+  height: 80%;
 }
 
 /*---About---*/
@@ -200,6 +204,7 @@ li {
   color: #3a3a3a;
   background-color: #F2F2F2;
   height: 100vh;
+  padding-top: 80px;
   margin-bottom: 100px;
 }
 
@@ -213,6 +218,7 @@ li {
 .comment-box {
   display: flex;
   justify-content: center;
+  padding-top: 80px;
 }
 
 .comment-shell {
@@ -226,6 +232,11 @@ li {
 
 .comment-shell h3 {
   margin-top: 40px;
+}
+
+#comment-container {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
 }
 
 .comments-section {
@@ -286,6 +297,16 @@ li {
   color: black;
 }
 
+small {
+  color: #ff0600;
+  background-color: #BBBBBB;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 7px;
+
+}
+
 .show {
   display: block;
   transition: all 0.5s ease;
@@ -333,6 +354,7 @@ footer {
 /*HOVER EFFECTS*/
 
 .search-form input:nth-child(3):hover {
+  cursor: pointer;
   font-size: 22px;
   color: white;
   height: 50px;
@@ -342,11 +364,19 @@ footer {
 }
 
 .comments-form input[type="submit"]:hover {
+  cursor: pointer;
   font-size: 20px;
   color: white;
   height: 50px;
   width: 110px;
   background-color: #ff0600;
+}
+
+small:hover {
+  cursor: pointer;
+  background-color: #ff0600;
+  color: white;
+
 }
 
 @media only screen and (max-width: 500px) {
