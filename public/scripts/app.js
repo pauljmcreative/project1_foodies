@@ -9,13 +9,15 @@ const comments = 'comments/';
 const zomato = 'https://developers.zomato.com/api/v2.1';
 const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 const commentResults = document.getElementById('comment-container')
-
+const smallScreen = window.matchMedia('(max-width: 500px)');
 
   /////////SMOOTH SCROLL/////////////////
 
   //smooth scroll for navigation -- any anchor tag 
   $('.nav-buttons a').on('click', function(event) {
-    //console.log('Hash = ' + this.hash)
+    if (smallScreen.matches) {
+      openCloseMobileNav();
+    };
     if (this.hash !== '') {
       event.preventDefault();
       let hash = this.hash;
@@ -30,13 +32,14 @@ const commentResults = document.getElementById('comment-container')
     }
   });
 
-  $(function() {
-    $('.nav-buttons a').bind('click',function(event){
-      event.preventDefault();
-      $('.nav-buttons a').removeClass('active');
-      $(this).addClass('active');
-    });
-  });
+  //EL -- this block doesn't seem to do anything. we don't have any classes named "active"
+  // $(function() {
+  //   $('.nav-buttons a').bind('click',function(event){
+  //     event.preventDefault();
+  //     $('.nav-buttons a').removeClass('active');
+  //     $(this).addClass('active');
+  //   });
+  // });
 
   /////////////////////////////////
   /////SMALL SCREEN NAVIGATION/////
@@ -45,24 +48,25 @@ const commentResults = document.getElementById('comment-container')
   //when user selects hamburger,
   function openCloseMobileNav() {
     console.log("opened or closed nav");
-    //remove hamburger
+    //toggle hamburger, close icons
     $('.fa-bars').toggleClass('hamburger-icon');
-    //show X close icon
     $('.fa-times').toggleClass('close-icon');
     $('.fa-times').toggleClass('hide');
-    //show mobile nav styles
+    //toggle dropdown
     $('nav').toggleClass('small-screen-nav');
     $('.nav-buttons').toggleClass('nav-buttons-small-screen');
-    //hide small screen nav bar
   };
 
   $('.fa-bars').on('click', openCloseMobileNav);
   $('.fa-times').on('click', openCloseMobileNav);
 
 
+
 ////////////////////////////////////////
 /////////ABOUT US PIC CAROUSEL//////////
 ////////////////////////////////////////
+
+
 
 
 
