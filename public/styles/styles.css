@@ -377,23 +377,24 @@ footer {
   background-color: #ff0600;
 }
 
-/*SMALL SCREEN STYES*/
 small:hover {
   cursor: pointer;
   background-color: #ff0600;
   color: white;
 }
 
+
+/*SMALL SCREEN STYES*/
+
 @media only screen and (max-width: 500px) {
 
-  .hamburger-nav-bar {
-    height:80px;
-    width: 100%;
-    background-color: #f2f2f2;
+
+.large-screen-nav {
+  background-color: rgba(255, 255, 255, 0);
   }
 
   .hamburger-icon {
-    color: red;
+    color: white;
     display: block;
     font-size: 2em;
     margin: 20px 30px;
@@ -406,10 +407,7 @@ small:hover {
     text-align: right;
     padding-right: 30px;
     margin-top: 20px;
-  }
-
-  .large-screen-nav {
-    display: none;
+    z-index: 1;
   }
 
   nav img {
@@ -428,33 +426,40 @@ small:hover {
   .small-screen-nav {
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 260px;
     position: fixed;
     top: 0;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .nav-buttons-small-screen {
     display: flex;
     flex-direction: column;
     font-size: 25px;
-    margin: 0 auto;
-    padding: 0;
+    margin: 10px auto;
+    padding: 10px 10px 0;
     text-align: left;
-    width: 95%;
+    width: 100%;
+  }
+
+  .nav-and-login {
+    position: relative;
+    top: -63px;
   }
 
   .user-buttons {
     align-items: unset;
     display: flex;
     flex-direction: column;
-    margin: 15px;
+    margin: 0 10px;
+    position: relative;
+    top: 70px;
   }
 
   .user-buttons button {    
     font-size: .6em;
-    margin: 5px;
-    padding: 15px;
+    height: 100px;
   }
 
   li {
