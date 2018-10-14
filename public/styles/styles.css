@@ -479,7 +479,7 @@ small:hover {
     position: relative;
     right: 20px;
     text-align: right;
-    top: 15px;
+    top: -20px;
     z-index: 1;
   }
 
@@ -502,15 +502,16 @@ small:hover {
     flex-direction: column;
     height: 350px;
     width: 100%;
+    padding-top: 35px;
   }
 
   .nav-buttons-small-screen {
     display: flex;
     flex-direction: column;
     font-size: 25px;
-    height: 250px;
-    margin: 10px auto;
-    padding: 10px 10px 0;
+    height: 300px;
+    margin: 0;
+    padding: 0;
     text-align: left;
     width: 100%;
   }
@@ -534,6 +535,7 @@ small:hover {
 
   li {
     margin-bottom: 5px;
+    padding-left: 10px;
   }
 
 
