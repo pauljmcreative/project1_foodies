@@ -60,6 +60,22 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
   $('.fa-times').on('click', openCloseMobileNav);
 
 
+
+
+////////////////////////////////////////
+/////////ABOUT US PIC CAROUSEL//////////
+////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////
   /////SEARCH FOR RESTAURANTS BY CITY/////
   ////////////////////////////////////////
@@ -178,10 +194,7 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
 
   };  
   
-
-
-
-
+  
 const animateResults = () => (function ($) {
   'use strict';
   var content  = $('#main').smoothState({
@@ -202,6 +215,10 @@ const animateResults = () => (function ($) {
 })(jQuery);
 
 
+
+
+    });
+  };
 
 
 
@@ -272,10 +289,9 @@ const animateResults = () => (function ($) {
   function commentCarousel() {
     console.log('Carouselling...')
     let commentIndex = 0;
+    $('#comment-container').children().eq(0).attr('class', 'show');
     setInterval(function() {
       const commentResultsArray = $('#comment-container').children();
-      // console.log(commentResultsArray);
-      // console.log(commentResultsArray.length);
       commentIndex += 1;
       if (commentIndex > commentResultsArray.length-1) {commentIndex = 0}
       commentResultsArray.eq(commentIndex).siblings().attr('class', 'comment-results');
@@ -304,8 +320,7 @@ const animateResults = () => (function ($) {
 
 ///////////TRYING TO STOP CAROUSEL/////////////
 
-      // clearInterval(commentId);
-      // $(this).attr('class', 'show');
+ 
 
 /////////////////////////////////////////////////
 

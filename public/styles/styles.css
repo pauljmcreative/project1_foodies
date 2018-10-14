@@ -222,6 +222,13 @@ li a:hover {
   margin-bottom: 100px;
 }
 
+.our-pics {
+  height: 60px;
+  width: 60px;
+  border: none;
+  border-radius: 25px;
+}
+
 .col {
   background-color: #80c6f2;
   padding: 20px 50px 20px 50px;
