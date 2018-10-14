@@ -17,9 +17,13 @@ main {
   color: #3a3a3a;
 }
 
-/*generic hide class*/
+/*generic hide and show class*/
 .hide {
   display: none;
+}
+
+.show-class {
+  display: block;
 }
 
 /*---HEADER---*/
@@ -44,16 +48,6 @@ nav img {
 .fa-bars {
   display: none;
 }
-
-/*nav {
-  display: flex;
-  flex-direction: row;
-  background-color: #f2f2f2;
-  position: fixed;
-  top: 0;
-  height: 80px;
-  width: 100%;
-}*/
 
 .large-screen-nav {
   background-color: #f2f2f2;
@@ -81,6 +75,10 @@ li {
   list-style-type: none;
   color: white;
   padding: 2px 0;
+}
+
+li a:hover {
+  background-color: grey;
 }
 
 .nav-buttons {
@@ -360,17 +358,34 @@ footer {
 
   .fa-bars {
     color: red;
+    display: block;
     font-size: 2em;
-    margin: 20px;
+    margin: 20px 30px;
+    text-align: left;
+  }
+
+  .fa-times {
+    color: red;
+    font-size: 2em;
+    text-align: right;
+    padding-right: 30px;
   }
 
   .large-screen-nav {
     display: none;
   }
 
+  nav img {
+    display: none;
+  }
+
   .nav-buttons {
     align-items: unset;
     display: none;
+  }
+
+ a {
+    padding: 5px 10px;
   }
 
   .small-screen-nav {
@@ -389,7 +404,7 @@ footer {
     margin: 0 auto;
     padding: 0;
     text-align: left;
-    width: 90%;
+    width: 95%;
   }
 
   .user-buttons {
@@ -407,10 +422,6 @@ footer {
 
   li {
     margin-bottom: 5px;
-  }
-
-  li:first-of-type {
-    background-color: #f2f2f2;
   }
 
 
