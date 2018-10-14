@@ -9,15 +9,16 @@ const comments = 'comments/';
 const zomato = 'https://developers.zomato.com/api/v2.1';
 const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 const commentResults = document.getElementById('comment-container')
-const smallScreen = window.matchMedia("(max-width: 500px)");
+const smallScreen = window.matchMedia('(max-width: 500px)');
 
   /////////SMOOTH SCROLL/////////////////
 
   //smooth scroll for navigation -- any anchor tag 
   $('.nav-buttons a').on('click', function(event) {
     //console.log('Hash = ' + this.hash)
-    if (smallScreen) {
+    if (smallScreen.matches) {
       openCloseMobileNav();
+      console.log("SS" + smallScreen);
     };
     if (this.hash !== '') {
       event.preventDefault();
