@@ -210,6 +210,7 @@ const commentResults = document.getElementById('comment-container')
         <div class="comment-results">
             <p><strong>${comment.user.username}</strong></p>
             <p><strong>${comment.message}</strong></p>
+            <br/>
             <small id="${comment._id}">EDIT</small>
             <small id="${comment._id}">DELETE</small>
         </div>
