@@ -8,7 +8,7 @@ body {
   background-size: cover;
   height: 100vh; 
   color: #f2f2f2;
-  max-width: 1600px;
+  max-width: 1400px;
   text-align: center;
   margin: 0 auto;
 }
@@ -47,7 +47,7 @@ p {
 nav img {
   height: 50px;
   margin-right: 15px;
-  width: 50px;
+  width: 70px;
 }
 
 .fa-bars {
@@ -114,14 +114,19 @@ li a:hover {
 
 /*--Search--*/
 
+.search-text img {
+  max-width: 80%;
+  padding: 0;
+  margin: 0 -30px;
+}
+
 .search-section {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  align-content: center;
+  justify-content: center;
+  max-width: 1300px;
   height: 100vh;
-  width: 100%;
-  margin: 0 auto;
 }
 
 .search-form {
@@ -129,6 +134,7 @@ li a:hover {
   height: 65%;
   width: 40%;
   max-width: 50%;
+  min-width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
