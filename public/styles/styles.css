@@ -8,7 +8,7 @@ body {
   background-size: cover;
   height: 100vh; 
   color: #f2f2f2;
-  max-width: 1600px;
+  max-width: 1400px;
   text-align: center;
   margin: 0 auto;
 }
@@ -47,7 +47,7 @@ p {
 nav img {
   height: 50px;
   margin-right: 15px;
-  width: 50px;
+  width: 70px;
 }
 
 .fa-bars {
@@ -114,14 +114,19 @@ li a:hover {
 
 /*--Search--*/
 
+.search-text img {
+  max-width: 80%;
+  padding: 0;
+  margin: 0 -30px;
+}
+
 .search-section {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  align-content: center;
+  justify-content: center;
+  max-width: 1300px;
   height: 100vh;
-  width: 100%;
-  margin: 0 auto;
 }
 
 .search-form {
@@ -129,6 +134,7 @@ li a:hover {
   height: 65%;
   width: 40%;
   max-width: 50%;
+  min-width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,11 +148,6 @@ li a:hover {
   color: #ff0600;
   font-size: 30px;
   font-family: 'Rammetto One', cursive;
-/*  -webkit-animation: color-change 10s infinite;
-    -moz-animation: color-change 10s infinite;
-    -o-animation: color-change 10s infinite;
-    -ms-animation: color-change 10s infinite;
-    animation: color-change 10s infinite;*/
 }
 
 .search-form input:nth-child(2) {
@@ -211,56 +212,8 @@ li a:hover {
   height: 80%;
 }
 
-
-
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-
-
-
-
-
 /*---About---*/
 .about-us-section {
-  /*display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;*/
-  /*box-sizing: border-box;
-  overflow: hidden;*/
   color: #3a3a3a;
   height: 100vh;
   padding-top: 60px;
@@ -288,10 +241,6 @@ li a:hover {
   font-size: 30px;
   color: #3a3a3a;
 }
-
-/*.about-us-section h3 {
-  color: #3a3a3a;
-}*/
 
 
 .comment-box {
@@ -398,36 +347,6 @@ footer {
   font-weight: bold;
   margin-top: 120px;
 }
-
-/*KEY FRAMES*/
-/*@-webkit-keyframes color-change {
-    0% { color: #6FB7FF; }
-    50% { color: #3a3a3a; }
-    100% { color: #6FB7FF; }
-}
-@-moz-keyframes color-change {
-    0% { color: #6FB7FF; }
-    50% { color: #3a3a3a; }
-    100% { color: #6FB7FF; }
-}
-@-ms-keyframes color-change {
-    0% { color: #6FB7FF; }
-    50% { color: #3a3a3a; }
-    100% { color: #6FB7FF; }
-}
-@-o-keyframes color-change {
-    0% { color: #6FB7FF; }
-    50% { color: #3a3a3a; }
-    100% { color: #6FB7FF; }
-}
-@keyframes color-change {
-    0% { color: #6FB7FF; }
-    50% { color: #3a3a3a; }
-    100% { color: #6FB7FF; }
-}*/
-
-
-
 
 /*HOVER EFFECTS*/
 
