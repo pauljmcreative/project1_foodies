@@ -46,9 +46,10 @@ const commentResults = document.getElementById('comment-container')
   function openCloseMobileNav() {
     console.log("opened or closed nav");
     //remove hamburger
-    $('.fa-bars').toggleClass('hamburger-nav-bar');
+    $('.fa-bars').toggleClass('hamburger-icon');
     //show X close icon
     $('.fa-times').toggleClass('close-icon');
+    $('.fa-times').toggleClass('hide');
     //show mobile nav styles
     $('nav').toggleClass('small-screen-nav');
     $('.nav-buttons').toggleClass('nav-buttons-small-screen');
