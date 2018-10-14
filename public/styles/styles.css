@@ -356,7 +356,7 @@ footer {
 
 @media only screen and (max-width: 500px) {
 
-  .fa-bars {
+  .hamburger-icon {
     color: red;
     display: block;
     font-size: 2em;
@@ -364,11 +364,12 @@ footer {
     text-align: left;
   }
 
-  .fa-times {
+  .close-icon {
     color: red;
     font-size: 2em;
     text-align: right;
     padding-right: 30px;
+    margin-top: 20px;
   }
 
   .large-screen-nav {
