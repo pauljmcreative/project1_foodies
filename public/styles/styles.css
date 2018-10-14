@@ -8,7 +8,7 @@ body {
   background-size: cover;
   height: 100vh; 
   color: #f2f2f2;
-  max-width: 1400px;
+  max-width: 1600px;
   text-align: center;
   margin: 0 auto;
 }
@@ -121,7 +121,6 @@ li a:hover {
   justify-content: space-around;
   height: 100vh;
   width: 100%;
-  /*border: 2px solid white;*/
   margin: 0 auto;
 }
 
@@ -175,10 +174,14 @@ li a:hover {
 
 
 .results-section {
-  height: 100vh;
+  height: 0;
   width: 100%;
   color: white;
   padding-top: 80px;
+  /*animation-duration: 0.25s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;*/
 }
 
 .name-address h2 {
@@ -207,6 +210,48 @@ li a:hover {
   width: 80%;
   height: 80%;
 }
+
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+
+
 
 /*---About---*/
 .about-us-section {
