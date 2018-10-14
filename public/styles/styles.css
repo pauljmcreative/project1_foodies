@@ -169,6 +169,9 @@ li a:hover {
   transition: all .2s ease-in-out;
 }
 
+.search-text h2 {
+  color: white;
+}
 /*---Search results---*/
 
 
