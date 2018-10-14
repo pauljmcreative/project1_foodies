@@ -51,7 +51,10 @@ const commentResults = document.getElementById('comment-container')
     $('.results-section').empty();
 
     //scroll to results
-    document.querySelector('.results-section').scrollIntoView({behavior: 'smooth'});
+    document.querySelector('.results-section').scrollIntoView({behavior: 'smooth', block: 'start'});
+    // setTimeout(() => {
+    //   window.scrollBy(0, -40);
+    // }, 500);}
 
     const query = encodeURI(document.getElementById('cityName').value);
     let cityId = null;  
@@ -96,7 +99,7 @@ const commentResults = document.getElementById('comment-container')
     let rName = foundRestaurantsArray[0].restaurant.name;
     let rAddress = foundRestaurantsArray[0].restaurant.location.address;
     console.log(rImage);
-
+    $('.results-section').css('background-color', '#3a3a3a');
     $('.results-section').append(`
       <section class="name-address">
         <h2 class="restaurant-name">${rName}</h2>
