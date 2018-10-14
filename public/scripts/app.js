@@ -119,7 +119,7 @@ const commentResults = document.getElementById('comment-container')
     let rName = foundRestaurantsArray[0].restaurant.name;
     let rAddress = foundRestaurantsArray[0].restaurant.location.address;
     console.log(rImage);
-    $('.results-section').css('background-color', '#3a3a3a');
+    $('.results-section').css({'height': '100vh', 'background-color': '#3a3a3a'});
     $('.results-section').append(`
       <section class="name-address">
         <h2 class="restaurant-name">${rName}</h2>
@@ -162,6 +162,32 @@ const commentResults = document.getElementById('comment-container')
     });
   };  
   
+
+
+
+
+const animateResults = () => (function ($) {
+  'use strict';
+  var content  = $('#main').smoothState({
+        // onStart runs as soon as link has been activated
+        onStart : {
+          
+          // Set the duration of our animation
+          duration: 250,
+          
+          // Alterations to the page
+          render: function () {
+
+            // Quickly toggles a class and restarts css animations
+            content.toggleAnimationClass('is-exiting');
+          }
+        }
+      }).data('smoothState'); // makes public methods available
+})(jQuery);
+
+
+
+
 
   /////////////////////////////
   ////////COMMENTS/////////////
