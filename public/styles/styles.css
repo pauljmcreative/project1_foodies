@@ -462,14 +462,29 @@ small:hover {
   }
 
   /*search results*/
+  .restaurant-carousel {
+    align-items: center;
+  }
 
   .previous-restaurant, .next-restaurant {
     display: none;
   }
 
   .next-icon, .previous-icon {
-  display: block;
-}
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    font-size: 5em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .next-icon {
+    right: 30px;
+  }
+
+  .previous-icon {
+    left: 30px;
+  }
 
  /*search and comments*/ 
   /*PAULS ADDITIONS*/  
