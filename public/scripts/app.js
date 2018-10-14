@@ -241,7 +241,12 @@ const animateResults = () => (function ($) {
             <small id="${comment._id}">EDIT</small>
             <small id="${comment._id}">DELETE</small>
         </div>
-      `)
+      `);
+      
+/////////////////TRYING TO STYLE COMMENT-RESULTS SECTION/////////////////////////////////
+      // document.getElementById('comment-results').css({'display': 'flex', 'flex-direction': 'column', 'justify-content': 'center', 'align-items': 'center'})
+//////////////////////////////////////////////////////////////////////////////////////////
+    
     });
 
     commentCarousel();
@@ -253,8 +258,8 @@ const animateResults = () => (function ($) {
     let commentIndex = 0;
     setInterval(function() {
       const commentResultsArray = $('#comment-container').children();
-      console.log(commentResultsArray);
-      console.log(commentResultsArray.length);
+      // console.log(commentResultsArray);
+      // console.log(commentResultsArray.length);
       commentIndex += 1;
       if (commentIndex > commentResultsArray.length-1) {commentIndex = 0}
       commentResultsArray.eq(commentIndex).siblings().attr('class', 'comment-results');
@@ -262,6 +267,7 @@ const animateResults = () => (function ($) {
 
     },3000);
   };
+
 
   //////Edit and Delete Comments//////
   const handleEditDelete = (event) => {
@@ -277,6 +283,17 @@ const animateResults = () => (function ($) {
       const commentName = parent.children[0].innerText;
       const commentMessage = parent.children[1].innerText;
       const commentId = parent.children[2].id;
+
+
+
+///////////TRYING TO STOP CAROUSEL/////////////
+
+      // clearInterval(commentId);
+      // $(this).attr('class', 'show');
+
+/////////////////////////////////////////////////
+
+
 
       //create edit comment form
       parent.insertAdjacentHTML('beforeend', `
