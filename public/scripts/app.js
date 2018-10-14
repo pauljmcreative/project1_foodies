@@ -15,10 +15,8 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
 
   //smooth scroll for navigation -- any anchor tag 
   $('.nav-buttons a').on('click', function(event) {
-    //console.log('Hash = ' + this.hash)
     if (smallScreen.matches) {
       openCloseMobileNav();
-      console.log("SS" + smallScreen);
     };
     if (this.hash !== '') {
       event.preventDefault();
@@ -34,13 +32,14 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
     }
   });
 
-  $(function() {
-    $('.nav-buttons a').bind('click',function(event){
-      event.preventDefault();
-      $('.nav-buttons a').removeClass('active');
-      $(this).addClass('active');
-    });
-  });
+  //EL -- this block doesn't seem to do anything. we don't have any classes named "active"
+  // $(function() {
+  //   $('.nav-buttons a').bind('click',function(event){
+  //     event.preventDefault();
+  //     $('.nav-buttons a').removeClass('active');
+  //     $(this).addClass('active');
+  //   });
+  // });
 
   /////////////////////////////////
   /////SMALL SCREEN NAVIGATION/////
