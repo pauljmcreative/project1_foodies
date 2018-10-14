@@ -470,20 +470,26 @@ small:hover {
     display: none;
   }
 
+  .restaurant-carousel img {
+    width: 100%;
+  }
+
+  .restaurant-carousel button {
+    background: none;
+    width: 0;
+  }
+
+  button .next-icon {
+    position: relative;
+    right: 40px;
+  }
+  
   .next-icon, .previous-icon {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     display: block;
-    font-size: 5em;
+    font-size: 3em;
     position: relative;
     z-index: 1;
-  }
-
-  .next-icon {
-    right: 30px;
-  }
-
-  .previous-icon {
-    left: 30px;
   }
 
  /*search and comments*/ 

@@ -129,15 +129,22 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
 
       <section class="restaurant-carousel">
         <button class="previous-restaurant">Previous</button>
-        <i class="fas fa-caret-left previous-icon"></i>
+        <button><i class="fas fa-caret-left previous-icon"></i></button>
         <img src="${rImage}" alt="Photo of food at ${rName}."/>
         <button class="next-restaurant">Next</button>
-        <i class="fas fa-caret-right next-icon"></i>
+        <button><i class="fas fa-caret-right next-icon"></i></button>
       </section>
       `);
 
+    const prevText = $('.previous-restaurant');
+    const nextText = $('.next-restaurant'); 
+    const prevIcon = $('.previous-icon');
+    const nextIcon = $('.next-icon');
+    //const clickNext = (nextText || nextIcon);
+
     //when user selects next button, show next restaurant
-    $('.next-restaurant').on('click',() => {
+
+    function goNext() {
       if (i < foundRestaurantsArray.length - 1) {
         i++;
       } else {
@@ -149,10 +156,10 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
       $('.restaurant-name').text(nextName);
       $('.restaurant-address').text(nextAddress);
       $('.restaurant-carousel img').attr('src', nextImage);
-    });
+    };
 
-    //when user selects previous button, show previous restaurant
-    $('.previous-restaurant').on('click',() => {
+    //when user selects previous, show previous restaurant
+    function goPrevious() {
       if (i > 0 && i < foundRestaurantsArray.length - 1) {
         i--
       };
@@ -162,7 +169,13 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
       $('.restaurant-name').text(nextName);
       $('.restaurant-address').text(nextAddress);
       $('.restaurant-carousel img').attr('src', nextImage);
-    });
+    };
+
+    nextIcon.on('click', goNext);
+    nextText.on('click', goNext);
+    prevIcon.on('click', goPrevious);
+    prevText.on('click', goPrevious);
+
   };  
   
 
