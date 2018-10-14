@@ -38,6 +38,25 @@ const commentResults = document.getElementById('comment-container')
     });
   });
 
+  /////////////////////////////////
+  /////SMALL SCREEN NAVIGATION/////
+  /////////////////////////////////
+
+  //when user selects hamburger,
+  function openCloseMobileNav() {
+    console.log("opened or closed nav");
+    //remove hamburger
+    $('.fa-bars').toggleClass('hamburger-nav-bar');
+    //show X close icon
+    $('.fa-times').toggleClass('close-icon');
+    //show mobile nav styles
+    $('nav').toggleClass('small-screen-nav');
+    $('.nav-buttons').toggleClass('nav-buttons-small-screen');
+    //hide small screen nav bar
+  };
+
+  $('.fa-bars').on('click', openCloseMobileNav);
+  $('.fa-times').on('click', openCloseMobileNav);
 
   ////////////////////////////////////////
   /////SEARCH FOR RESTAURANTS BY CITY/////

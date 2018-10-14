@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans:400i|Rammetto+One" rel="stylesheet">
   <title>Foodies Unite!</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 
@@ -13,12 +14,16 @@
   <header id="home">
 
     <nav class="small-screen-nav large-screen-nav">
-      <i class="fas fa-bars"></i>
+      <div class="hamburger-nav-bar">
+      <i class="fas fa-bars hamburger-icon"></i>
+    </div>
+
+      <i class="fas fa-times"></i>
       <ul class="nav-and-login nav-buttons nav-buttons-small-screen">
         
         <section class="nav-buttons nav-buttons-small-screen">
           <img src="images/logo.png" alt="logo">
-          <li><a class="highlight-nav" href="#home">home</a></li>
+          <li><a href="#home">home</a></li>
           <li><a href="#about">about</a></li>
           <li><a href="#allComments">message</a></li>
         </section>
@@ -31,13 +36,13 @@
       </ul>
     </nav>
 
-    <section class="create-user">
+<!--     <section class="create-user">
       <form method="POST" action="http://localhost:3000/api/users">
         <input type="text" placeholder="user name" name="user" value="">
         <input type="text" placeholder="password" name="password" value="">
         <input type="submit" id="submit-user" name="SUBMIT">
       </form>
-    </section>
+    </section> -->
 
   </header>
 
