@@ -170,12 +170,11 @@ li a:hover {
   transition: all .2s ease-in-out;
 }
 
-.search-text h2 {
-  color: white;
-}
 /*---Search results---*/
 
-
+.next-icon, .previous-icon {
+  display: none;
+}
 
 .results-section {
   height: 0;
@@ -379,13 +378,15 @@ small:hover {
 }
 
 
-/*SMALL SCREEN STYES*/
+/*-----SMALL SCREEN STYES-----*/
 
 @media only screen and (max-width: 500px) {
 
+  /*navigation*/
+
   .large-screen-nav {
     background-color: rgba(255, 255, 255, 0);
-    }
+  }
 
   .hamburger-icon {
     color: white;
@@ -460,8 +461,18 @@ small:hover {
     padding-left: 10px;
   }
 
+  /*search results*/
 
-/*PAULS ADDITIONS*/
+  .previous-restaurant, .next-restaurant {
+    display: none;
+  }
+
+  .next-icon, .previous-icon {
+  display: block;
+}
+
+ /*search and comments*/ 
+  /*PAULS ADDITIONS*/  
 
   .search-form label {
     font-size: 22px;
@@ -486,8 +497,8 @@ small:hover {
   }
 
   .comment-shell {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
   }
 
   .col h3, .col p {
@@ -506,14 +517,13 @@ small:hover {
   }
 
   .search-form {
-  height: 70%;
-  width: 100%;
-  max-width: 100%;
+    height: 70%;
+    width: 100%;
+    max-width: 100%;
   }
 
-
 }
-
+/*end small screen styles*/
 
 
 

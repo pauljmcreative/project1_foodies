@@ -45,7 +45,6 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
   /////SMALL SCREEN NAVIGATION/////
   /////////////////////////////////
 
-  //when user selects hamburger,
   function openCloseMobileNav() {
     console.log("opened or closed nav");
     //toggle hamburger, close icons
@@ -59,7 +58,6 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
 
   $('.fa-bars').on('click', openCloseMobileNav);
   $('.fa-times').on('click', openCloseMobileNav);
-
 
 
   ////////////////////////////////////////
@@ -131,8 +129,10 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
 
       <section class="restaurant-carousel">
         <button class="previous-restaurant">Previous</button>
+        <i class="fas fa-caret-left previous-icon"></i>
         <img src="${rImage}" alt="Photo of food at ${rName}."/>
         <button class="next-restaurant">Next</button>
+        <i class="fas fa-caret-right next-icon"></i>
       </section>
       `);
 
