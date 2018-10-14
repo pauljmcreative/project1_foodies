@@ -354,7 +354,15 @@ footer {
   background-color: #ff0600;
 }
 
+/*SMALL SCREEN STYES*/
+
 @media only screen and (max-width: 500px) {
+
+  .hamburger-nav-bar {
+    height:80px;
+    width: 100%;
+    background-color: #f2f2f2;
+  }
 
   .hamburger-icon {
     color: red;
