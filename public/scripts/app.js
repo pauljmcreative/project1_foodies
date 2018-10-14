@@ -166,7 +166,7 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
       } else {
         i=0;
       };
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
       let nextName = foundRestaurantsArray[i].restaurant.name;
       let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
       $('.restaurant-name').text(nextName);
@@ -179,7 +179,7 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
       if (i > 0 && i < foundRestaurantsArray.length - 1) {
         i--
       };
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
       let nextName = foundRestaurantsArray[i].restaurant.name;
       let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
       $('.restaurant-name').text(nextName);
