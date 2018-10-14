@@ -62,6 +62,20 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
 
 
 
+////////////////////////////////////////
+/////////ABOUT US PIC CAROUSEL//////////
+////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////
   /////SEARCH FOR RESTAURANTS BY CITY/////
   ////////////////////////////////////////
@@ -163,33 +177,7 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
       $('.restaurant-address').text(nextAddress);
       $('.restaurant-carousel img').attr('src', nextImage);
     });
-  };  
-  
-
-
-
-
-const animateResults = () => (function ($) {
-  'use strict';
-  var content  = $('#main').smoothState({
-        // onStart runs as soon as link has been activated
-        onStart : {
-          
-          // Set the duration of our animation
-          duration: 250,
-          
-          // Alterations to the page
-          render: function () {
-
-            // Quickly toggles a class and restarts css animations
-            content.toggleAnimationClass('is-exiting');
-          }
-        }
-      }).data('smoothState'); // makes public methods available
-})(jQuery);
-
-
-
+  };
 
 
   /////////////////////////////
@@ -259,10 +247,9 @@ const animateResults = () => (function ($) {
   function commentCarousel() {
     console.log('Carouselling...')
     let commentIndex = 0;
+    $('#comment-container').children().eq(0).attr('class', 'show');
     setInterval(function() {
       const commentResultsArray = $('#comment-container').children();
-      // console.log(commentResultsArray);
-      // console.log(commentResultsArray.length);
       commentIndex += 1;
       if (commentIndex > commentResultsArray.length-1) {commentIndex = 0}
       commentResultsArray.eq(commentIndex).siblings().attr('class', 'comment-results');
@@ -291,8 +278,7 @@ const animateResults = () => (function ($) {
 
 ///////////TRYING TO STOP CAROUSEL/////////////
 
-      // clearInterval(commentId);
-      // $(this).attr('class', 'show');
+ 
 
 /////////////////////////////////////////////////
 
