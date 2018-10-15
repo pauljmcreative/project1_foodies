@@ -82,7 +82,6 @@ var changeImg = () => {
 
   setTimeout('changeImg()', time);
 }
-
   window.onload = changeImg;
 
 
@@ -290,16 +289,6 @@ var changeImg = () => {
       const commentName = parent.children[0].innerText;
       const commentMessage = parent.children[1].innerText;
       const commentId = parent.children[2].id;
-
-
-
-///////////TRYING TO STOP CAROUSEL/////////////
-
- 
-
-/////////////////////////////////////////////////
-
-
 
       //create edit comment form
       parent.insertAdjacentHTML('beforeend', `
