@@ -59,11 +59,34 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
 
 
 
+let images = [];
 
+images[0] = 'images/team/image1.jpg';
+images[2] = 'images/team/image2.jpg';
+images[3] = 'images/team/image3.jpg';
+images[4] = 'images/team/image4.jpg';
+images[5] = 'images/team/image5.jpg';
+images[6] = 'images/team/image6.jpg';
+images[7] = 'images/team/image7.jpg';
+images[8] = 'images/team/image8.jpg';
+images[9] = 'images/team/image9.jpg';
+images[10] = 'images/team/image10.jpg';
 
+const changeImg = () => {
+  let i = 0;
+  let time = 3000;
+  document.slide.src = images[i];
 
+  if(i < images.length - 1) {
+    i++;
+  } else {
+    i = 0;
+  }
 
+  setTimeout('changeImg()', time);
+}
 
+  window.onload = changeImg;
 
 
 
@@ -248,7 +271,7 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
       commentResultsArray.eq(commentIndex).siblings().attr('class', 'comment-results');
       commentResultsArray.eq(commentIndex).attr('class', 'show');  
 
-    },3000);
+    },9000);
   };
 
 

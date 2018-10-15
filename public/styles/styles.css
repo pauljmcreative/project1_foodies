@@ -225,11 +225,14 @@ li {
   overflow: hidden;
 }
 
-.our-pics {
-  height: 60px;
-  width: 60px;
+.team-pics {
+/*  height: 100px;*/
+  /*width: 20px;*/
+  height: 130px;
+  max-width: 130px;
   border: none;
-  border-radius: 25px;
+  border-radius: 60px;
+  overflow: hidden;
 }
 
 .col {
