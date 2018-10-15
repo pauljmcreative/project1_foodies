@@ -32,15 +32,6 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
     }
   });
 
-  //EL -- this block doesn't seem to do anything. we don't have any classes named "active"
-  // $(function() {
-  //   $('.nav-buttons a').bind('click',function(event){
-  //     event.preventDefault();
-  //     $('.nav-buttons a').removeClass('active');
-  //     $(this).addClass('active');
-  //   });
-  // });
-
   /////////////////////////////////
   /////SMALL SCREEN NAVIGATION/////
   /////////////////////////////////
