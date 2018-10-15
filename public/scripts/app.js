@@ -9,7 +9,7 @@ const comments = 'comments/';
 const zomato = 'https://developers.zomato.com/api/v2.1';
 const zomatoKey = "64ec316d35f97e2df01286cf2d5f00df";
 const commentResults = document.getElementById('comment-container')
-const smallScreen = window.matchMedia('(max-width: 500px)');
+const smallScreen = window.matchMedia('(max-width: 760px)');
 
   /////////SMOOTH SCROLL/////////////////
 
@@ -145,10 +145,10 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
 
       <section class="restaurant-carousel">
         <button class="previous-restaurant">Previous</button>
-        <button><i class="fas fa-caret-left previous-icon"></i></button>
+        <button class="icon"><i class="fas fa-caret-left previous-icon"></i></button>
         <img src="${rImage}" alt="Photo of food at ${rName}."/>
         <button class="next-restaurant">Next</button>
-        <button><i class="fas fa-caret-right next-icon"></i></button>
+        <button class="icon"><i class="fas fa-caret-right next-icon"></i></button>
       </section>
       `);
 
@@ -166,7 +166,7 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
       } else {
         i=0;
       };
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
       let nextName = foundRestaurantsArray[i].restaurant.name;
       let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
       $('.restaurant-name').text(nextName);
@@ -179,7 +179,7 @@ const smallScreen = window.matchMedia('(max-width: 500px)');
       if (i > 0 && i < foundRestaurantsArray.length - 1) {
         i--
       };
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image;
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
       let nextName = foundRestaurantsArray[i].restaurant.name;
       let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
       $('.restaurant-name').text(nextName);
@@ -216,9 +216,6 @@ const animateResults = () => (function ($) {
 
 
 
-
-    });
-  };
 
 
 
