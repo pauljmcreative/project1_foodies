@@ -39,9 +39,9 @@
 
 ## Wins
 1. Pair programming
-* Very few syntax errors - these were easy to spot and call out when watching the other person code.
-* Good planning and communication of who was working on what and when to merge - resulted in minimal issues merging code to master from two separate branches with changes to the same files.
-* Dual ownership of project process and final product.
+	* Very few syntax errors - these were easy to spot and call out when watching the other person code.
+	* Good planning and communication of who was working on what and when to merge - resulted in minimal issues merging code to master from two separate branches with changes to the same files.
+	* Dual ownership of project process and final product.
 
 2. Accomplished main goals of creating a simple app with inspiring imagery and simplifying restaurant recommendations.
 
@@ -49,22 +49,21 @@
 
 ## Challenges
 1. Pair programming
-* Difficult to work with differing approaches problem-solving.
+	* Difficult to work with differing approaches problem-solving.
 
 2. Zomato API
-* Difficult to understand how to structure the requests.
-* A lot of nested data made it difficult to find exactly what we needed to retrieve.
+	* Difficult to understand how to structure the requests.
+	* A lot of nested data made it difficult to find exactly what we needed to retrieve.
 
-3. More ...
+3. DRY code for restaurant carousel next/previous functionality - tried a few things that didn't work:
+![code snippet for restaurant carousel](../public/images/code/next_prev.png)
+
 
 ## Featured code snippets
 1. Used window.matchMedia() to incorporate small screen nav click-to and smooth scroll behavior with minimal code.
-![code snippet for smooth scroll](images/code/smooth_scroll.png)
+![code snippet for smooth scroll](../public/images/code/smooth_scroll.png)
 
-2. Used conditional statements to increment or decriment restaurant index number for next and previous buttons in restaurant carousel, within one function instead of two repetitive functions.
-![code snippet for restaurant carousel](images/code/next_prev.png)
-
-3. More...
+2. More...
 ![alt text](image.png)
 
 
