@@ -213,9 +213,10 @@ li {
 /*---About---*/
 .about-us-section {
   color: #3a3a3a;
-  height: 100vh;
+  height: 120vh;
   padding-top: 60px;
   margin-bottom: 100px;
+  overflow: hidden;
 }
 
 .our-pics {
