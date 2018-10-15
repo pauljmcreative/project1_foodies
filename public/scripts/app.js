@@ -32,14 +32,6 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
     }
   });
 
-  //EL -- this block doesn't seem to do anything. we don't have any classes named "active"
-  // $(function() {
-  //   $('.nav-buttons a').bind('click',function(event){
-  //     event.preventDefault();
-  //     $('.nav-buttons a').removeClass('active');
-  //     $(this).addClass('active');
-  //   });
-  // });
 
   /////////////////////////////////
   /////SMALL SCREEN NAVIGATION/////
@@ -156,29 +148,17 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
     const nextText = $('.next-restaurant'); 
     const prevIcon = $('.previous-icon');
     const nextIcon = $('.next-icon');
-    //const clickNext = (nextText || nextIcon);
 
     //when user selects next button, show next restaurant
-
     function goNext() {
       if (i < foundRestaurantsArray.length - 1) {
         i++;
+      } else if (i > 0 && i < foundRestaurantsArray.length - 1) {
+        i--;
       } else {
         i=0;
       };
-      let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
-      let nextName = foundRestaurantsArray[i].restaurant.name;
-      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
-      $('.restaurant-name').text(nextName);
-      $('.restaurant-address').text(nextAddress);
-      $('.restaurant-carousel img').attr('src', nextImage);
-    };
 
-    //when user selects previous, show previous restaurant
-    function goPrevious() {
-      if (i > 0 && i < foundRestaurantsArray.length - 1) {
-        i--
-      };
       let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
       let nextName = foundRestaurantsArray[i].restaurant.name;
       let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
@@ -189,12 +169,14 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
 
     nextIcon.on('click', goNext);
     nextText.on('click', goNext);
-    prevIcon.on('click', goPrevious);
-    prevText.on('click', goPrevious);
-
+    prevIcon.on('click', goNext);
+    prevText.on('click', goNext);
   };  
   
-  
+
+///////////////////////////////////
+//EL - Please comment this section - is it specific to the restaurant carousel? 
+//////////////////////////////////
 const animateResults = () => (function ($) {
   'use strict';
   var content  = $('#main').smoothState({
