@@ -100,10 +100,16 @@ li {
 }
 
 .user-buttons button {
+  font-size: 12px;
+  color: white;
+  height: 25px;
+  width: 70px;
+  background-color: #ff0600;
   margin: 5px;
   padding: 10px;
-  border: 1px solid grey;
-  border-radius: 5px;
+  border: none;
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
 }
 
 /*---MAIN---*/
@@ -219,11 +225,14 @@ li {
   overflow: hidden;
 }
 
-.our-pics {
-  height: 60px;
-  width: 60px;
+.team-pics {
+/*  height: 100px;*/
+  /*width: 20px;*/
+  height: 130px;
+  max-width: 130px;
   border: none;
-  border-radius: 25px;
+  border-radius: 60px;
+  overflow: hidden;
 }
 
 .col {
@@ -358,6 +367,12 @@ footer {
 
 li a:hover {
   background-color: grey;
+}
+
+.user-buttons button:hover {
+  font-size: 14px;
+  height: 32px;
+  width: 75px;
 }
 
 .search-form input:nth-child(3):hover {
