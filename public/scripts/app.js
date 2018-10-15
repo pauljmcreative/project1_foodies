@@ -32,7 +32,6 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
     }
   });
 
-
   /////////////////////////////////
   /////SMALL SCREEN NAVIGATION/////
   /////////////////////////////////
@@ -169,37 +168,10 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
 
     nextIcon.on('click', goNext);
     nextText.on('click', goNext);
-    prevIcon.on('click', goNext);
-    prevText.on('click', goNext);
-  };  
-  
+    prevIcon.on('click', goPrevious);
+    prevText.on('click', goPrevious);
 
-///////////////////////////////////
-//EL - Please comment this section - is it specific to the restaurant carousel? 
-//////////////////////////////////
-const animateResults = () => (function ($) {
-  'use strict';
-  var content  = $('#main').smoothState({
-        // onStart runs as soon as link has been activated
-        onStart : {
-          
-          // Set the duration of our animation
-          duration: 250,
-          
-          // Alterations to the page
-          render: function () {
-
-            // Quickly toggles a class and restarts css animations
-            content.toggleAnimationClass('is-exiting');
-          }
-        }
-      }).data('smoothState'); // makes public methods available
-})(jQuery);
-
-
-
-
-
+  };
 
   /////////////////////////////
   ////////COMMENTS/////////////

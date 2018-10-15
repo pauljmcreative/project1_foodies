@@ -45,9 +45,9 @@ p {
 /*---NAV---*/
 
 nav img {
-  height: 50px;
+  height: 40px;
   margin-right: 15px;
-  width: 70px;
+  width: 60px;
 }
 
 .fa-bars {
@@ -80,10 +80,6 @@ li {
   list-style-type: none;
   color: white;
   padding: 2px 0;
-}
-
-li a:hover {
-  background-color: grey;
 }
 
 .nav-buttons {
@@ -358,6 +354,10 @@ footer {
 }
 
 /*HOVER EFFECTS*/
+
+li a:hover {
+  background-color: grey;
+}
 
 .search-form input:nth-child(3):hover {
   cursor: pointer;
