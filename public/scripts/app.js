@@ -276,6 +276,7 @@ var changeImg = () => {
 
 
   //////Edit and Delete Comments//////
+
   const handleEditDelete = (event) => {
     //delete comment
     if (event.target.innerText === 'DELETE') {
@@ -325,6 +326,8 @@ var changeImg = () => {
 
       };
   };
+
+
 
 
   $('#cuisine-submit').on('click', findCityId);
