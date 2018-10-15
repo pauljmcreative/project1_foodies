@@ -37,7 +37,6 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
   /////////////////////////////////
 
   function openCloseMobileNav() {
-    console.log("opened or closed nav");
     //toggle hamburger, close icons
     $('.fa-bars').toggleClass('hamburger-icon');
     $('.fa-times').toggleClass('close-icon');
@@ -49,8 +48,6 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
 
   $('.fa-bars').on('click', openCloseMobileNav);
   $('.fa-times').on('click', openCloseMobileNav);
-
-
 
 
 ////////////////////////////////////////
@@ -80,9 +77,6 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
 
     //scroll to results
     document.querySelector('.results-section').scrollIntoView({behavior: 'smooth', block: 'start'});
-    // setTimeout(() => {
-    //   window.scrollBy(0, -40);
-    // }, 500);}
 
     const query = encodeURI(document.getElementById('cityName').value);
     let cityId = null;  
@@ -126,7 +120,6 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
     let rImage = foundRestaurantsArray[0].restaurant.featured_image || "images/plate.jpg";
     let rName = foundRestaurantsArray[0].restaurant.name;
     let rAddress = foundRestaurantsArray[0].restaurant.location.address;
-    console.log(rImage);
     $('.results-section').css({'height': '100vh', 'background-color': '#3a3a3a'});
     $('.results-section').append(`
       <section class="name-address">
@@ -142,51 +135,44 @@ const smallScreen = window.matchMedia('(max-width: 760px)');
         <button class="icon next-icon"><i class="fas fa-caret-right next-icon"></i></button>
       </section>
       `);
-        const prevText = $('.previous-restaurant');
-        const nextText = $('.next-restaurant'); 
-        const prevIcon = $('.previous-icon');
-        const nextIcon = $('.next-icon');
-        //const clickNext = (nextText || nextIcon);
 
-        //when user selects next button, show next restaurant
+    //when user selects next button, show next restaurant
+    function goNext() {
+      if (i < foundRestaurantsArray.length - 1) {
+        i++;
+      } else {
+        i=0;
+      };
 
-        function goNext() {
-          if (i < foundRestaurantsArray.length - 1) {
-            i++;
-          } else {
-            i=0;
-          };
-          let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
-          let nextName = foundRestaurantsArray[i].restaurant.name;
-          let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
-          $('.restaurant-name').text(nextName);
-          $('.restaurant-address').text(nextAddress);
-          $('.restaurant-carousel img').attr('src', nextImage);
-        };
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
+      let nextName = foundRestaurantsArray[i].restaurant.name;
+      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+      $('.restaurant-name').text(nextName);
+      $('.restaurant-address').text(nextAddress);
+      $('.restaurant-carousel img').attr('src', nextImage);
+    };
 
-        //when user selects previous, show previous restaurant
-        function goPrevious() {
-          if (i > 0 && i < foundRestaurantsArray.length - 1) {
-            i--
-          };
-          let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
-          let nextName = foundRestaurantsArray[i].restaurant.name;
-          let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
-          $('.restaurant-name').text(nextName);
-          $('.restaurant-address').text(nextAddress);
-          $('.restaurant-carousel img').attr('src', nextImage);
-        };
+    //when user selects previous, show previous restaurant
+    function goPrevious() {
+      if (i > 0 && i < foundRestaurantsArray.length - 1) {
+        i--
+      };
 
-        nextIcon.on('click', goNext);
-        nextText.on('click', goNext);
-        prevIcon.on('click', goPrevious);
-        prevText.on('click', goPrevious);
+      let nextImage = foundRestaurantsArray[i].restaurant.featured_image || "images/plate.jpg";
+      let nextName = foundRestaurantsArray[i].restaurant.name;
+      let nextAddress = foundRestaurantsArray[i].restaurant.location.address;
+      $('.restaurant-name').text(nextName);
+      $('.restaurant-address').text(nextAddress);
+      $('.restaurant-carousel img').attr('src', nextImage);
+    };
 
-      }; 
+    $('.next-icon').on('click', goNext);
+    $('.next-restaurant').on('click', goNext);
 
- 
-  
-   
+    $('.previous-icon').on('click', goPrevious);
+    $('.previous-restaurant').on('click', goPrevious);
+
+  }; 
 
 
   /////////////////////////////
