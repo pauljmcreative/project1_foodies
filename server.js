@@ -128,7 +128,7 @@ app.get('/api/seed', (req, res) => {
 
   const userComments = [
     {
-      message: 'I lie awake at night assured these two will cure cancer based on their development skills.'
+      message: 'I love every restaurant they recommend!'
     },
     {
       message: 'I love poutine and I love these guys.  Their work is poutine.'
