@@ -72,7 +72,7 @@ images[8] = 'images/team/image8.jpg';
 images[9] = 'images/team/image9.jpg';
 images[10] = 'images/team/image10.jpg';
 
-const changeImg = () => {
+var changeImg = () => {
   let i = 0;
   let time = 3000;
   document.slide.src = images[i];
@@ -87,7 +87,6 @@ const changeImg = () => {
 }
 
   window.onload = changeImg;
-
 
 
   ////////////////////////////////////////
